@@ -1,6 +1,6 @@
 # Design-info-25
 
-L'adresse vers mon site est : https://hadimid10.github.io/Design-info-25/
+L'URL vers mon site est : https://hadimid10.github.io/Design-info-25/
 
 Design d'Information 2025
 
