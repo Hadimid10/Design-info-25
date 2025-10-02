@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Dossier d'interaction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      padding: 20px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dossier d'interaction</h1>
+  
+  <form action="/submit" method="post">
+    <!-- Identité -->
+    <h2>Informations personnelles</h2>
+    <div class="champ">
+      <label for="nom">Nom :</label>
+      <input id="nom" name="nom" type="text" placeholder="Votre nom complet" required>
+    </div>
+    <div class="champ">
+      <label for="prenom">Prénom :</label>
+      <input id="prenom" name="prenom" type="text" placeholder="Votre prénom" required>
+    </div>
+</body>
+</html>
