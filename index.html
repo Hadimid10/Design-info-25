@@ -1,6 +1,194 @@
-<html>
- <head></head>
- <body>
-  <h1>Design d'information</h1>
- </body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Hamidou SY</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f9;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 2px solid #0077b6;
+      padding-bottom: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+      color: #0077b6;
+    }
+
+    header h2 {
+      margin: 5px 0;
+      font-weight: normal;
+      color: #555;
+    }
+
+    .section {
+      margin-top: 25px;
+    }
+
+    .section h3 {
+      color: #0077b6;
+      margin-bottom: 10px;
+      border-left: 5px solid #0077b6;
+      padding-left: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+      font-size: 0.95em;
+    }
+
+    .experience, .formation {
+      margin-bottom: 15px;
+    }
+
+    .experience strong, .formation strong {
+      display: block;
+      color: #444;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Hamidou SY</h1>
+      <h2>Archiviste</h2>
+      <p>Prochainement étudiant en Master 2 en Gestion Stratégique de l’Information. 
+      Recherche une alternance à partir de septembre 2025.</p>
+      <div class="contact">
+        <span>📍 Saint-Denis, Île-de-France</span>
+        <span>📞 07 53 07 77 29</span>
+        <span>📧 <a href="mailto:hamidous596@gmail.com">hamidous596@gmail.com</a></span>
+        <span>🔗 <a href="https://www.linkedin.com/in/HAMIDOU%20SY">LinkedIn</a></span>
+      </div>
+    </header>
+
+    <section class="section">
+      <h3>Expériences Professionnelles</h3>
+      <div class="experience">
+        <strong>Archiviste - EFFITRANS Dakar (Juin – Août 2024)</strong>
+        Archivage des dossiers courants, inventaire général, reclassement, création de répertoire physique et électronique.
+      </div>
+      <div class="experience">
+        <strong>Archiviste - Centre Linguistique Appliquée de Dakar (Avril – Mai 2024)</strong>
+        Classement thématique, analyse et description, tri et bordereau d'élimination.
+      </div>
+      <div class="experience">
+        <strong>Archiviste - ECOBANK Saint-Louis (Octobre 2023 – Février 2024)</strong>
+        Traitement de fonds clients, collecte, classement, inventaire général.
+      </div>
+      <div class="experience">
+        <strong>Archiviste - Direction Générale des Douanes Dakar (Juin – Août 2022)</strong>
+        Tri annuel, communication de titres d’exonération, reclassement des dossiers personnels.
+      </div>
+      <div class="experience">
+        <strong>Archiviste - Société Immobilière du Cap-Vert (Septembre – Novembre 2021)</strong>
+        Classement et gestion des dossiers locataires, organisation des fonds, suivi des marchés publics.
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Formations</h3>
+      <div class="formation">
+        <strong>Master en Gestion Stratégique de l'Information (2024 – en cours)</strong>
+        Université Vincennes - Saint-Denis, Paris 8
+      </div>
+      <div class="formation">
+        <strong>Certificat en Informatique et Internet (2024)</strong>
+        FOREC N (Université Chéikh Hamidou Kané), Dakar
+      </div>
+      <div class="formation">
+        <strong>Licence en Science de l'Information Documentaire option Archives (2021 – 2024)</strong>
+        EBAD, Dakar
+      </div>
+      <div class="formation">
+        <strong>Baccalauréat Sciences sociales et humaines (2020)</strong>
+        Lycée El Hadj Baba Ndiongue, Podor
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Compétences</h3>
+      <div class="skills">
+        <ul>
+          <li>Archivage physique & électronique</li>
+          <li>Instruments de recherche (inventaire, registre…)</li>
+          <li>Gestion documentaire (plan de classement, GED)</li>
+        </ul>
+        <ul>
+          <li>Pack Office (Word, Excel, PowerPoint)</li>
+          <li>Logiciels (Alfresco, ICA-Atom)</li>
+          <li>Bases de données (Jlib, Omeka, HTML, Spip)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Langues</h3>
+      <p>Anglais (niveau intermédiaire)</p>
+    </section>
+
+    <section class="section">
+      <h3>Aptitudes</h3>
+      <ul>
+        <li>Esprit d’équipe</li>
+        <li>Capacité d’adaptation</li>
+        <li>Organisation et gestion du temps</li>
+        <li>Confidentialité et éthique</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h3>Centres d’intérêt</h3>
+      <p>Football, Lecture, Musique, Cinéma</p>
+    </section>
+
+    <footer>
+      © 2025 - CV Hamidou SY
+    </footer>
+  </div>
+</body>
 </html>
