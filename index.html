@@ -3,197 +3,276 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CV Hamidou SY</title>
+  <title>See Watch | Boutique de montres élégantes</title>
   <style>
+    /* -----------------------------
+       STYLES GÉNÉRAUX
+    ----------------------------- */
+    :root {
+      --bleu: #0B67FF;
+      --doré: #FFD700;
+      --gris: #222;
+      --clair: #F7F7F7;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Poppins", sans-serif;
       margin: 0;
-      background: #f4f4f9;
-      color: #333;
+      background-color: var(--clair);
+      color: var(--gris);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--bleu);
+      text-decoration: none;
+    }
+
+    /* -----------------------------
+       EN-TÊTE + NAVIGATION
+    ----------------------------- */
+    header {
+      background: var(--gris);
+      color: white;
+      padding: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding-inline: 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      gap: 0.5rem;
+    }
+
+    .logo span:first-child {
+      color: var(--bleu);
+    }
+
+    .logo span:last-child {
+      color: var(--doré);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--doré);
+    }
+
+    h1, h2, h3 {
+      text-align: center;
+      margin-top: 2rem;
     }
 
     .container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      border-radius: 10px;
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 0;
     }
 
-    header {
+    /* -----------------------------
+       SECTION ACCUEIL
+    ----------------------------- */
+    .hero {
+      background: linear-gradient(to right, var(--bleu), var(--gris));
+      color: white;
       text-align: center;
-      border-bottom: 2px solid #0077b6;
-      padding-bottom: 20px;
+      padding: 5rem 2rem;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.2em;
-      color: #0077b6;
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
 
-    header h2 {
-      margin: 5px 0;
-      font-weight: normal;
-      color: #555;
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
     }
 
-    .section {
-      margin-top: 25px;
-    }
-
-    .section h3 {
-      color: #0077b6;
-      margin-bottom: 10px;
-      border-left: 5px solid #0077b6;
-      padding-left: 10px;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul li {
-      margin-bottom: 8px;
-    }
-
-    .contact {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 10px;
-      font-size: 0.95em;
-    }
-
-    .experience, .formation {
-      margin-bottom: 15px;
-    }
-
-    .experience strong, .formation strong {
-      display: block;
-      color: #444;
-    }
-
-    .skills {
+    /* -----------------------------
+       SECTION BOUTIQUE
+    ----------------------------- */
+    .produits {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .produit {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .produit:hover {
+      transform: translateY(-5px);
+    }
+
+    .produit img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .produit h3 {
+      margin-top: 1rem;
+      color: var(--bleu);
+    }
+
+    .produit p {
+      margin: 0.5rem 0;
+    }
+
+    .btn {
+      background: var(--doré);
+      color: var(--gris);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #e6c200;
+    }
+
+    /* -----------------------------
+       SECTION À PROPOS
+    ----------------------------- */
+    .about {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      margin-top: 3rem;
+    }
+
+    /* -----------------------------
+       SECTION CONTACT
+    ----------------------------- */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+
+    input, textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      background: var(--bleu);
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background: #094dcc;
     }
 
     footer {
       text-align: center;
-      margin-top: 30px;
-      font-size: 0.9em;
-      color: #666;
-    }
-    img{
-    width:100px;
-    height:100px;
+      background: var(--gris);
+      color: white;
+      padding: 1rem;
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Hamidou SY</h1>
-      <img src="photocv.jpg"></img>
-      <h2>Archiviste</h2>
-      <p>Prochainement étudiant en Master 2 en Gestion Stratégique de l’Information. 
-      Recherche une alternance à partir de septembre 2025.</p>
-      <div class="contact">
-        <span>📍 Saint-Denis, Île-de-France</span>
-        <span>📞 07 53 07 77 29</span>
-        <span>📧 <a href="mailto:hamidous596@gmail.com">hamidous596@gmail.com</a></span>
-        <span>🔗 <a href="https://www.linkedin.com/in/HAMIDOU%20SY">LinkedIn</a></span>
-      </div>
-    </header>
 
-    <section class="section">
-      <h3>Expériences Professionnelles</h3>
-      <div class="experience">
-        <strong>Archiviste - EFFITRANS Dakar (Juin – Août 2024)</strong>
-        Archivage des dossiers courants, inventaire général, reclassement, création de répertoire physique et électronique.
-      </div>
-      <div class="experience">
-        <strong>Archiviste - Centre Linguistique Appliquée de Dakar (Avril – Mai 2024)</strong>
-        Classement thématique, analyse et description, tri et bordereau d'élimination.
-      </div>
-      <div class="experience">
-        <strong>Archiviste - ECOBANK Saint-Louis (Octobre 2023 – Février 2024)</strong>
-        Traitement de fonds clients, collecte, classement, inventaire général.
-      </div>
-      <div class="experience">
-        <strong>Archiviste - Direction Générale des Douanes Dakar (Juin – Août 2022)</strong>
-        Tri annuel, communication de titres d’exonération, reclassement des dossiers personnels.
-      </div>
-      <div class="experience">
-        <strong>Archiviste - Société Immobilière du Cap-Vert (Septembre – Novembre 2021)</strong>
-        Classement et gestion des dossiers locataires, organisation des fonds, suivi des marchés publics.
-      </div>
-    </section>
+  <header>
+    <div class="logo">
+      🕰️ <span>See</span><span>Watch</span>
+    </div>
+    <nav>
+      <a href="#accueil">Accueil</a>
+      <a href="#boutique">Boutique</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <section class="section">
-      <h3>Formations</h3>
-      <div class="formation">
-        <strong>Master en Gestion Stratégique de l'Information (2024 – en cours)</strong>
-        Université Vincennes - Saint-Denis, Paris 8
-      </div>
-      <div class="formation">
-        <strong>Certificat en Informatique et Internet (2024)</strong>
-        FOREC N (Université Chéikh Hamidou Kané), Dakar
-      </div>
-      <div class="formation">
-        <strong>Licence en Science de l'Information Documentaire option Archives (2021 – 2024)</strong>
-        EBAD, Dakar
-      </div>
-      <div class="formation">
-        <strong>Baccalauréat Sciences sociales et humaines (2020)</strong>
-        Lycée El Hadj Baba Ndiongue, Podor
-      </div>
-    </section>
+  <section id="accueil" class="hero">
+    <h1>See Watch</h1>
+    <p>Découvrez l'univers fascinant de See Watch, où chaque montre est bien plus qu’un accessoire — c’est une alliance de style, de précision et d’élégance.</p>
+  </section>
 
-    <section class="section">
-      <h3>Compétences</h3>
-      <div class="skills">
-        <ul>
-          <li>Archivage physique & électronique</li>
-          <li>Instruments de recherche (inventaire, registre…)</li>
-          <li>Gestion documentaire (plan de classement, GED)</li>
-        </ul>
-        <ul>
-          <li>Pack Office (Word, Excel, PowerPoint)</li>
-          <li>Logiciels (Alfresco, ICA-Atom)</li>
-          <li>Bases de données (Jlib, Omeka, HTML, Spip)</li>
-        </ul>
+  <section id="boutique" class="container">
+    <h2>Nos montres</h2>
+    <div class="produits">
+      <div class="produit">
+        <img src="https://via.placeholder.com/300x200" alt="Montre Classique">
+        <h3>Montre Classique</h3>
+        <p>Élégance intemporelle pour toutes les occasions.</p>
+        <a href="#" class="btn">Voir plus</a>
       </div>
-    </section>
+      <div class="produit">
+        <img src="https://via.placeholder.com/300x200" alt="Montre Sport">
+        <h3>Montre Sport</h3>
+        <p>Performance et design réunis dans un modèle dynamique.</p>
+        <a href="#" class="btn">Voir plus</a>
+      </div>
+      <div class="produit">
+        <img src="https://via.placeholder.com/300x200" alt="Montre Prestige">
+        <h3>Montre Prestige</h3>
+        <p>Un symbole de luxe et de savoir-faire exceptionnel.</p>
+        <a href="#" class="btn">Voir plus</a>
+      </div>
+    </div>
+  </section>
 
-    <section class="section">
-      <h3>Langues</h3>
-      <p>Anglais (niveau intermédiaire)</p>
-    </section>
+  <section id="apropos" class="container">
+    <h2>À propos</h2>
+    <div class="about">
+      <p>Chez <strong>See Watch</strong>, nous croyons que le temps est précieux. C’est pourquoi nous concevons des montres qui allient esthétisme, qualité et précision. Chaque modèle est pensé pour sublimer votre style, tout en vous accompagnant au quotidien.</p>
+    </div>
+  </section>
 
-    <section class="section">
-      <h3>Aptitudes</h3>
-      <ul>
-        <li>Esprit d’équipe</li>
-        <li>Capacité d’adaptation</li>
-        <li>Organisation et gestion du temps</li>
-        <li>Confidentialité et éthique</li>
-      </ul>
-    </section>
+  <section id="contact" class="container">
+    <h2>Contactez-nous</h2>
+    <form>
+      <input type="text" placeholder="Votre nom" required>
+      <input type="email" placeholder="Votre email" required>
+      <textarea rows="5" placeholder="Votre message..." required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
 
-    <section class="section">
-      <h3>Centres d’intérêt</h3>
-      <p>Football, Lecture, Musique, Cinéma</p>
-    </section>
+  <footer>
+    <p>© 2025 See Watch. Tous droits réservés.</p>
+  </footer>
 
-    <footer>
-      © 2025 - CV Hamidou SY
-    </footer>
-  </div>
 </body>
 </html>
