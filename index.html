@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>See Watch | Boutique de montres élégantes</title>
   <style>
-    /* -----------------------------
-       STYLES GÉNÉRAUX
-    ----------------------------- */
     :root {
       --bleu: #0B67FF;
       --doré: #FFD700;
@@ -28,39 +25,29 @@
       text-decoration: none;
     }
 
-    /* -----------------------------
-       EN-TÊTE + NAVIGATION
-    ----------------------------- */
+    /* --- Header & Navigation --- */
     header {
       background: var(--gris);
       color: white;
-      padding: 1rem 0;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      padding-inline: 2rem;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      font-size: 1.5rem;
-      font-weight: 700;
       gap: 0.5rem;
     }
 
-    .logo span:first-child {
-      color: var(--bleu);
-    }
-
-    .logo span:last-child {
-      color: var(--doré);
+    .logo img {
+      height: 50px;
     }
 
     nav {
       display: flex;
-      justify-content: center;
       gap: 2rem;
       flex-wrap: wrap;
     }
@@ -87,9 +74,7 @@
       padding: 2rem 0;
     }
 
-    /* -----------------------------
-       SECTION ACCUEIL
-    ----------------------------- */
+    /* --- Section Accueil --- */
     .hero {
       background: linear-gradient(to right, var(--bleu), var(--gris));
       color: white;
@@ -108,9 +93,7 @@
       margin: auto;
     }
 
-    /* -----------------------------
-       SECTION BOUTIQUE
-    ----------------------------- */
+    /* --- Section Boutique --- */
     .produits {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -124,16 +107,18 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       text-align: center;
       padding: 1.5rem;
-      transition: transform 0.3s ease;
     }
 
-    .produit:hover {
-      transform: translateY(-5px);
+    .images-produits {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1rem;
     }
 
-    .produit img {
-      width: 100%;
-      border-radius: 8px;
+    .images-produits img {
+      width: 100px;
+      border-radius: 6px;
     }
 
     .produit h3 {
@@ -158,9 +143,7 @@
       background: #e6c200;
     }
 
-    /* -----------------------------
-       SECTION À PROPOS
-    ----------------------------- */
+    /* --- Section À propos --- */
     .about {
       background: white;
       border-radius: 12px;
@@ -169,9 +152,7 @@
       margin-top: 3rem;
     }
 
-    /* -----------------------------
-       SECTION CONTACT
-    ----------------------------- */
+    /* --- Section Contact --- */
     form {
       display: flex;
       flex-direction: column;
@@ -214,7 +195,7 @@
 
   <header>
     <div class="logo">
-      🕰️ <span>See</span><span>Watch</span>
+      <img src="images/mon-logo.png" alt="Logo See Watch">
     </div>
     <nav>
       <a href="#accueil">Accueil</a>
@@ -232,24 +213,43 @@
   <section id="boutique" class="container">
     <h2>Nos montres</h2>
     <div class="produits">
+
+      <!-- Produit 1 -->
       <div class="produit">
-        <img src="https://via.placeholder.com/300x200" alt="Montre Classique">
+        <div class="images-produits">
+          <img src="images/montre1a.jpg" alt="Montre Classique 1">
+          <img src="images/montre1b.jpg" alt="Montre Classique 2">
+          <img src="images/montre1c.jpg" alt="Montre Classique 3">
+        </div>
         <h3>Montre Classique</h3>
         <p>Élégance intemporelle pour toutes les occasions.</p>
         <a href="#" class="btn">Voir plus</a>
       </div>
+
+      <!-- Produit 2 -->
       <div class="produit">
-        <img src="https://via.placeholder.com/300x200" alt="Montre Sport">
+        <div class="images-produits">
+          <img src="images/montre2a.jpg" alt="Montre Sport 1">
+          <img src="images/montre2b.jpg" alt="Montre Sport 2">
+          <img src="images/montre2c.jpg" alt="Montre Sport 3">
+        </div>
         <h3>Montre Sport</h3>
         <p>Performance et design réunis dans un modèle dynamique.</p>
         <a href="#" class="btn">Voir plus</a>
       </div>
+
+      <!-- Produit 3 -->
       <div class="produit">
-        <img src="https://via.placeholder.com/300x200" alt="Montre Prestige">
+        <div class="images-produits">
+          <img src="images/montre3a.jpg" alt="Montre Prestige 1">
+          <img src="images/montre3b.jpg" alt="Montre Prestige 2">
+          <img src="images/montre3c.jpg" alt="Montre Prestige 3">
+        </div>
         <h3>Montre Prestige</h3>
         <p>Un symbole de luxe et de savoir-faire exceptionnel.</p>
         <a href="#" class="btn">Voir plus</a>
       </div>
+
     </div>
   </section>
 
