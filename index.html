@@ -21,10 +21,7 @@
       overflow-x: hidden;
     }
 
-    a {
-      color: var(--bleu);
-      text-decoration: none;
-    }
+    a { color: var(--bleu); text-decoration: none; }
 
     /* ===== HEADER ===== */
     header {
@@ -40,26 +37,14 @@
       transition: transform 1s ease, opacity 1s ease;
     }
 
-    header.visible {
-      transform: translateY(0);
-      opacity: 1;
-    }
+    header.visible { transform: translateY(0); opacity: 1; }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
+    .logo { display: flex; align-items: center; gap: 0.5rem; }
     .logo img {
-      height: 100px; /* Logo agrandi */
-      opacity: 1;    /* visible dès le départ */
+      height: 150px;
       transition: transform 0.6s ease;
     }
-
-    .logo img:hover {
-      transform: scale(1.05);
-    }
+    .logo img:hover { transform: scale(1.05); }
 
     nav {
       display: flex;
@@ -69,21 +54,10 @@
       transform: translateY(-20px);
       transition: transform 1s ease, opacity 1s ease;
     }
+    nav.visible { opacity: 1; transform: translateY(0); }
 
-    nav.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    nav a {
-      color: white;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--doré);
-    }
+    nav a { color: white; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: var(--doré); }
 
     /* ===== HERO ===== */
     .hero {
@@ -91,25 +65,24 @@
       color: white;
       text-align: center;
       padding: 5rem 2rem;
+      position: relative;
       overflow: hidden;
-      position: relative;
     }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 2;
-    }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; position: relative; z-index: 2; }
 
-    .hero p {
-      font-size: 1.2rem;
+    .hero .scroll-text {
+      display: flex;
       white-space: nowrap;
-      display: inline-block;
       position: absolute;
-      will-change: transform;
-      animation: scrollText 15s linear infinite;
+      width: 100%;
+      animation: scrollText 20s linear infinite;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.3rem;
     }
+
+    .hero .scroll-text span { margin-right: 50px; display: inline-block; }
 
     @keyframes scrollText {
       0% { transform: translateX(100%); }
@@ -117,19 +90,8 @@
     }
 
     /* ===== PRODUITS ===== */
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-      padding: 2rem 0;
-    }
-
-    .produits {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
+    .container { width: 90%; max-width: 1200px; margin: auto; padding: 2rem 0; }
+    .produits { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
 
     .produit {
       background: white;
@@ -141,40 +103,22 @@
       opacity: 0;
       transform: translateY(40px);
     }
+    .produit.visible { opacity:1; transform: translateY(0); transition: all 0.8s ease; }
+    .produit:hover { transform: translateY(-5px) scale(1.03); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
 
-    .produit.visible {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.8s ease;
-    }
-
-    .produit:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .images-produits {
-      display: flex;
-      gap: 0.5rem;
-      justify-content: center;
-      margin-bottom: 1rem;
-    }
-
+    .images-produits { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1rem; }
     .images-produits img {
       width: 100px;
       border-radius: 6px;
-      transition: transform 0.4s ease;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
-
     .images-produits img:hover {
-      transform: scale(1.05);
+      transform: scale(1.15) rotate(5deg);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
-    .produit h3 {
-      margin-top: 1rem;
-      color: var(--bleu);
-    }
-
+    .produit h3 { margin-top: 1rem; color: var(--bleu); }
+    .produit p { margin: 0.5rem 0; }
     .btn {
       background: var(--doré);
       color: var(--gris);
@@ -184,133 +128,49 @@
       transition: background 0.3s, transform 0.3s;
       display: inline-block;
     }
-
-    .btn:hover {
-      background: #e6c200;
-      transform: scale(1.1);
-    }
+    .btn:hover { background: #e6c200; transform: scale(1.1); }
 
     /* ===== MODALE ===== */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      animation: fadeIn 0.4s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+    .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:999; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
 
     .modal-content {
-      background: white;
-      border-radius: 12px;
-      max-width: 600px;
-      width: 90%;
-      padding: 2rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      text-align: center;
+      background:white;
+      border-radius:12px;
+      max-width:600px;
+      width:90%;
+      padding:2rem;
+      box-shadow:0 8px 20px rgba(0,0,0,0.3);
+      text-align:center;
       transform: scale(0.9);
-      opacity: 0;
+      opacity:0;
       animation: zoomIn 0.4s forwards;
     }
+    @keyframes zoomIn { to { transform: scale(1); opacity:1; } }
 
-    @keyframes zoomIn {
-      to { transform: scale(1); opacity: 1; }
-    }
+    .modal-images { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:1rem; }
+    .modal-images img { width:120px; border-radius:8px; }
+    .close { position:absolute; top:15px; right:25px; font-size:28px; cursor:pointer; color:var(--gris); font-weight:bold; transition: color 0.3s; }
+    .close:hover { color:var(--bleu); }
+    .modal-description { text-align:left; margin-top:1rem; line-height:1.6; }
+    .modal-description strong { color: var(--bleu); }
 
-    .modal-images {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .modal-images img {
-      width: 120px;
-      border-radius: 8px;
-    }
-
-    .close {
-      position: absolute;
-      top: 15px;
-      right: 25px;
-      font-size: 28px;
-      cursor: pointer;
-      color: var(--gris);
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    .close:hover {
-      color: var(--bleu);
-    }
-
-    .modal-description {
-      text-align: left;
-      margin-top: 1rem;
-      line-height: 1.6;
-    }
-
-    .modal-description strong {
-      color: var(--bleu);
-    }
+    /* ===== VALEURS ===== */
+    .valeurs { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:2rem; }
+    .valeur { background:white; border-radius:12px; padding:1.5rem; box-shadow:0 4px 8px rgba(0,0,0,0.05); opacity:0; transform: translateY(40px); transition: all 0.8s ease; }
+    .valeur.visible { opacity:1; transform:translateY(0); }
+    .valeur h3 { color: var(--bleu); margin-bottom:0.5rem; }
 
     /* ===== ABOUT & CONTACT ===== */
-    .about, form {
-      background: white;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      margin-top: 3rem;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s ease;
-    }
-
+    .about, form { background:white; border-radius:12px; padding:2rem; box-shadow:0 4px 8px rgba(0,0,0,0.05); margin-top:3rem; opacity:0; transform: translateY(40px); transition: all 1s ease; }
     .about.visible, form.visible { opacity:1; transform: translateY(0); }
 
-    form input, form textarea {
-      padding: 0.8rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
+    form input, form textarea { padding:0.8rem; border:1px solid #ccc; border-radius:8px; font-size:1rem; }
+    form button { background:var(--bleu); color:white; border:none; padding:0.8rem; border-radius:8px; cursor:pointer; font-weight:600; transition: transform 0.3s; }
+    form button:hover { transform:scale(1.05); background:#094dcc; }
 
-    form button {
-      background: var(--bleu);
-      color: white;
-      border: none;
-      padding: 0.8rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: transform 0.3s;
-    }
-
-    form button:hover { transform: scale(1.05); background:#094dcc; }
-
-    footer {
-      text-align: center;
-      background: var(--gris);
-      color: white;
-      padding: 1rem;
-      margin-top: 3rem;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 1s ease;
-    }
-
-    footer.visible { opacity:1; transform: translateY(0); }
+    footer { text-align:center; background:var(--gris); color:white; padding:1rem; margin-top:3rem; opacity:0; transform: translateY(30px); transition: all 1s ease; }
+    footer.visible { opacity:1; transform:translateY(0); }
   </style>
 </head>
 <body>
@@ -322,6 +182,7 @@
     <nav id="menu">
       <a href="#accueil">Accueil</a>
       <a href="#boutique">Boutique</a>
+      <a href="#valeurs">Nos Valeurs</a>
       <a href="#apropos">À propos</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -329,7 +190,11 @@
 
   <section id="accueil" class="hero">
     <h1>See Watch</h1>
-    <p>Découvrez l'univers fascinant de See Watch, où chaque montre transcende le temps pour devenir une alliance parfaite de style, précision et élégance. Nos montres racontent une histoire unique, sublimant chaque instant de votre vie avec raffinement et audace.</p>
+    <div class="scroll-text">
+      <span>Découvrez l'univers fascinant de See Watch…</span>
+      <span>Chaque montre transcende le temps pour allier style, précision et élégance…</span>
+      <span>Des créations uniques qui subliment chaque instant de votre vie…</span>
+    </div>
   </section>
 
   <section id="boutique" class="container">
@@ -345,7 +210,6 @@
         <p>Élégance intemporelle pour toutes les occasions.</p>
         <a href="#" class="btn">Voir plus</a>
       </div>
-
       <div class="produit">
         <div class="images-produits">
           <img src="Images/montresport.jpg" alt="Montre Sport 1">
@@ -356,7 +220,6 @@
         <p>Performance et design réunis dans un modèle dynamique.</p>
         <a href="#" class="btn">Voir plus</a>
       </div>
-
       <div class="produit">
         <div class="images-produits">
           <img src="Images/montreprestige.jpg" alt="Montre Prestige 1">
@@ -370,7 +233,28 @@
     </div>
   </section>
 
-  <!-- MODALE -->
+  <section id="valeurs" class="container">
+    <h2>Nos Valeurs</h2>
+    <div class="valeurs">
+      <div class="valeur">
+        <h3>Qualité & Précision</h3>
+        <p>Chaque montre est minutieusement fabriquée pour garantir performance et durabilité.</p>
+      </div>
+      <div class="valeur">
+        <h3>Design Durable</h3>
+        <p>Nos modèles allient esthétique intemporelle et matériaux respectueux de l’environnement.</p>
+      </div>
+      <div class="valeur">
+        <h3>Service Premium</h3>
+        <p>Nous vous accompagnons avant, pendant et après votre achat pour une expérience unique.</p>
+      </div>
+      <div class="valeur">
+        <h3>Innovation & Artisanat</h3>
+        <p>Un équilibre entre savoir-faire artisanal et technologies modernes pour des montres uniques.</p>
+      </div>
+    </div>
+  </section>
+
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -383,10 +267,10 @@
   <section id="apropos" class="container about">
     <h2>À propos de See Watch</h2>
     <div>
-      <p>Chez <strong>See Watch</strong>, nous croyons que le temps est précieux. C’est pourquoi nous concevons des montres qui allient esthétisme, qualité et précision. Chaque modèle est pensé pour sublimer votre style, tout en vous accompagnant au quotidien.</p>
-      <p><strong>See Watch</strong> a été fondée en 2023 par <strong>Hamidou SY</strong> avec une vision claire : créer des montres qui allient élégance, précision et style intemporel. Dès sa création, l’entreprise a rencontré un succès fulgurant au Sénégal, séduisant un large public grâce à ses modèles uniques et raffinés.</p>
-      <p>Arrivé en France, Hamidou a rencontré <strong>Monique</strong>, une communicante brillante et passionnée, qui a rejoint l’aventure pour relancer et développer <strong>See Watch</strong> sur le marché français en mai 2025. Grâce à cette collaboration, l’entreprise a rapidement su s’imposer et conquérir de nouveaux clients.</p>
-      <p>Aujourd’hui, <strong>See Watch</strong> est devenue un acteur incontournable dans la vente de montres en France, poursuivant sa croissance et gagnant progressivement le cœur des amateurs de montres élégantes à travers tout le pays.</p>
+      <p>Chez <strong>See Watch</strong>, nous croyons que le temps est bien plus qu'une mesure : c’est une expérience, un style de vie. Chaque montre que nous créons accompagne vos moments les plus précieux avec précision, design et élégance intemporelle.</p>
+      <p>L’aventure a commencé en 2023 avec <strong>Hamidou SY</strong>, passionné d’horlogerie et d’innovation. Son ambition était claire : créer des montres qui racontent une histoire et deviennent des compagnons fidèles. Rapidement, ses créations uniques ont séduit un large public au Sénégal, faisant de See Watch une marque émergente reconnue pour son raffinement et sa qualité exceptionnelle.</p>
+      <p>En France, Hamidou rencontre <strong>Monique</strong>, communicante brillante et passionnée. Ensemble, ils réinventent See Watch pour le marché européen, conservant le mélange parfait de tradition et d’innovation. Le lancement officiel en 2025 marque un tournant : les montres See Watch deviennent des pièces convoitées, appréciées pour leur style unique et leur fiabilité horlogère.</p>
+      <p>Aujourd’hui, See Watch ne se contente pas de vendre des montres ; chaque modèle raconte une histoire, célèbre le savoir-faire artisanal et accompagne nos clients avec un service irréprochable. Notre ambition : transformer chaque seconde en un moment précieux et chaque montre en une œuvre d’art reflétant la personnalité de celui ou celle qui la porte.</p>
     </div>
   </section>
 
@@ -405,65 +289,40 @@
   </footer>
 
   <script>
-    // Header animation
-    window.addEventListener('load', () => {
-      document.getElementById('header').classList.add('visible');
-      document.getElementById('logo').classList.add('visible');
-      document.getElementById('menu').classList.add('visible');
+    // Animations scroll
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('header, nav, .produit, .valeur, .about, form, footer').forEach(el=>{
+        let top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100) el.classList.add('visible');
+      });
     });
 
-    // Scroll animation
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.2 });
+    // Modal produit
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalImages = document.getElementById("modal-images");
+    const modalDescription = document.getElementById("modal-description");
+    const closeBtn = document.querySelector(".close");
 
-    document.querySelectorAll('.hero, .produit, .about, form, footer').forEach(el => observer.observe(el));
-
-    // Modale
-    const details = {
-      "Montre Classique": {desc: "L'élégance intemporelle. Boîtier acier inox, bracelet cuir. Étanche 30m.", prix: "199 €", mat: "Acier / Cuir", style: "Classique & raffiné"},
-      "Montre Sport": {desc: "Chronographe haute précision, cadran anti-reflet, résistance à l’eau 100m.", prix: "249 €", mat: "Acier / Silicone", style: "Sportif & robuste"},
-      "Montre Prestige": {desc: "Boîtier doré, verre saphir, mouvement automatique suisse. Finition artisanale.", prix: "499 €", mat: "Or / Acier / Saphir", style: "Luxe & prestige"}
-    };
-
-    const modal = document.getElementById('modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalImgs = document.getElementById('modal-images');
-    const modalDesc = document.getElementById('modal-description');
-    const closeBtn = document.querySelector('.close');
-
-    document.querySelectorAll('.produit').forEach(card => {
-      const btn = card.querySelector('.btn');
-      btn.addEventListener('click', e => {
+    document.querySelectorAll(".produit .btn").forEach((btn)=>{
+      btn.addEventListener("click",(e)=>{
         e.preventDefault();
-        const nom = card.querySelector('h3').textContent;
-        modalTitle.textContent = nom;
-
-        const imgs = card.querySelectorAll('img');
-        modalImgs.innerHTML = '';
-        imgs.forEach(i => {
-          const big = document.createElement('img');
-          big.src = i.src;
-          modalImgs.appendChild(big);
+        const produit = btn.closest(".produit");
+        modalTitle.textContent = produit.querySelector("h3").textContent;
+        modalDescription.innerHTML = produit.querySelector("p").outerHTML;
+        modalImages.innerHTML = "";
+        produit.querySelectorAll(".images-produits img").forEach(img=>{
+          let newImg = document.createElement("img");
+          newImg.src = img.src;
+          newImg.alt = img.alt;
+          modalImages.appendChild(newImg);
         });
-
-        const d = details[nom];
-        modalDesc.innerHTML = `
-          <p><strong>Description :</strong> ${d.desc}</p>
-          <p><strong>Prix :</strong> ${d.prix}</p>
-          <p><strong>Matériaux :</strong> ${d.mat}</p>
-          <p><strong>Style :</strong> ${d.style}</p>
-        `;
-
-        modal.style.display = 'flex';
+        modal.style.display = "flex";
       });
     });
 
-    closeBtn.addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click', e => { if(e.target===modal) modal.style.display='none'; });
+    closeBtn.onclick = ()=> modal.style.display="none";
+    window.onclick = e=> { if(e.target==modal) modal.style.display="none"; }
   </script>
-
 </body>
 </html>
