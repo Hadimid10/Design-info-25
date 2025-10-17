@@ -19,7 +19,7 @@ body {
   color: var(--gris);
   line-height: 1.6;
   overflow-x: hidden;
-  padding-top: 140px; /* espace pour header réduit */
+  padding-top: 140px; /* espace pour header fixe */
   scroll-behavior: smooth;
 }
 a { color: var(--bleu); text-decoration: none; }
@@ -37,7 +37,7 @@ header {
   width: 100%;
   top: 0;
   z-index: 100;
-  height: 120px; /* réduit pour voir Contact */
+  height: 120px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 .logo img { height: 100px; transition: transform 0.6s ease; }
@@ -74,13 +74,10 @@ nav a:hover { color: var(--doré); }
   opacity: 0.9;
 }
 .hero .scroll-text span { margin-right: 50px; display: inline-block; }
-@keyframes scrollText {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
+@keyframes scrollText { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
 /* SECTIONS */
-section { scroll-margin-top: 130px; } /* ajusté pour header réduit */
+section { scroll-margin-top: 130px; } /* pour header fixe */
 
 /* CONTAINER */
 .container { width: 90%; max-width: 1200px; margin: auto; padding: 2rem 0; }
@@ -98,20 +95,14 @@ section { scroll-margin-top: 130px; } /* ajusté pour header réduit */
   cursor: pointer;
 }
 .produit.visible { opacity:1; transform: translateY(0); }
-.produit:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-}
+.produit:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
 .images-produits { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1rem; }
 .images-produits img {
   width: 100px;
   border-radius: 8px;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
-.images-produits img:hover {
-  transform: scale(1.2) rotate(5deg);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-}
+.images-produits img:hover { transform: scale(1.2) rotate(5deg); box-shadow: 0 10px 25px rgba(0,0,0,0.25); }
 .produit h3 { margin-top: 1rem; color: var(--bleu); font-size:1.5rem; }
 .produit p { margin: 0.5rem 0; color:#555; }
 .btn {
@@ -125,10 +116,7 @@ section { scroll-margin-top: 130px; } /* ajusté pour header réduit */
   text-transform: uppercase;
   transition: transform 0.3s, background-position 0.5s;
 }
-.btn:hover { 
-  transform: scale(1.1);
-  background-position: right center;
-}
+.btn:hover { transform: scale(1.1); background-position: right center; }
 
 /* MODALE */
 .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:999; animation: fadeIn 0.4s ease; }
@@ -143,112 +131,33 @@ section { scroll-margin-top: 130px; } /* ajusté pour header réduit */
 .modal-description strong { color: var(--bleu); }
 
 /* TITRES DE SECTIONS */
-.container h2 {
-  font-size: 2.5rem;
-  color: var(--bleu);
-  text-align: center;
-  margin-bottom: 2rem;
-  position: relative;
-}
-.container h2::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 4px;
-  background: var(--doré);
-  margin: 0.5rem auto 0;
-  border-radius: 2px;
-}
+.container h2 { font-size: 2.5rem; color: var(--bleu); text-align: center; margin-bottom: 2rem; position: relative; }
+.container h2::after { content: ""; display: block; width: 80px; height: 4px; background: var(--doré); margin: 0.5rem auto 0; border-radius: 2px; }
 
 /* VALEURS */
-.valeurs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-.valeur {
-  background: linear-gradient(145deg, #ffffff, #f9f9f9);
-  border-radius: 15px;
-  padding: 2rem;
-  text-align: center;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  opacity: 0;
-  transform: translateY(40px);
-}
+.valeurs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.valeur { background: linear-gradient(145deg, #ffffff, #f9f9f9); border-radius: 15px; padding: 2rem; text-align: center; transition: transform 0.5s ease, box-shadow 0.5s ease; opacity: 0; transform: translateY(40px); }
 .valeur.visible { opacity:1; transform:translateY(0); }
 .valeur:hover { transform: translateY(-10px); box-shadow:0 15px 30px rgba(0,0,0,0.15); }
 .valeur h3 { color: var(--bleu); margin-bottom: 1rem; font-size:1.5rem; }
 .valeur p { color: #555; line-height:1.6; }
 
 /* À PROPOS */
-.about {
-  background: linear-gradient(145deg, #ffffff, #f9f9f9);
-  border-radius: 15px;
-  padding: 2.5rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  margin-top: 3rem;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-  line-height:1.7;
-}
+.about { background: linear-gradient(145deg, #ffffff, #f9f9f9); border-radius: 15px; padding: 2.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.08); margin-top: 3rem; opacity: 0; transform: translateY(40px); transition: all 0.8s ease; line-height:1.7; }
 .about.visible { opacity:1; transform: translateY(0); }
 .about p { margin-bottom: 1.2rem; color:#333; }
 
 /* CONTACT */
-form {
-  background: linear-gradient(145deg, #ffffff, #f9f9f9);
-  border-radius: 15px;
-  padding: 2.5rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  margin-top: 3rem;
-  opacity:0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
+form { background: linear-gradient(145deg, #ffffff, #f9f9f9); border-radius: 15px; padding: 2.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.08); margin-top: 3rem; opacity:0; transform: translateY(40px); transition: all 0.8s ease; }
 form.visible { opacity:1; transform:translateY(0); }
-form input, form textarea {
-  width: 100%;
-  margin-bottom: 1rem;
-  padding: 0.9rem;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  font-size: 1rem;
-  transition: border 0.3s, box-shadow 0.3s;
-}
-form input:focus, form textarea:focus {
-  border-color: var(--bleu);
-  box-shadow: 0 0 10px rgba(11,103,255,0.2);
-  outline: none;
-}
-form button {
-  background: var(--gradient-btn);
-  background-size: 200% 200%;
-  color: var(--gris);
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  font-weight:600;
-  cursor: pointer;
-  transition: transform 0.3s, background-position 0.5s;
-}
+form input, form textarea { width: 100%; margin-bottom: 1rem; padding: 0.9rem; border: 1px solid #ccc; border-radius: 12px; font-size: 1rem; transition: border 0.3s, box-shadow 0.3s; }
+form input:focus, form textarea:focus { border-color: var(--bleu); box-shadow: 0 0 10px rgba(11,103,255,0.2); outline: none; }
+form button { background: var(--gradient-btn); background-size: 200% 200%; color: var(--gris); border: none; padding: 1rem 2rem; border-radius: 12px; font-size: 1.1rem; font-weight:600; cursor: pointer; transition: transform 0.3s, background-position 0.5s; }
 form button:hover { transform: scale(1.05); background-position: right center; }
 
 /* FOOTER */
-footer {
-  text-align:center;
-  background:var(--gris);
-  color:white;
-  padding:1.5rem 0;
-  margin-top:3rem;
-  opacity:0;
-  transform: translateY(30px);
-  transition: all 1s ease;
-}
+footer { text-align:center; background:var(--gris); color:white; padding:1.5rem 0; margin-top:3rem; opacity:0; transform: translateY(30px); transition: all 1s ease; }
 footer.visible { opacity:1; transform:translateY(0); }
-
 </style>
 </head>
 <body>
@@ -276,7 +185,64 @@ footer.visible { opacity:1; transform:translateY(0); }
 <section id="boutique" class="container">
   <h2>Nos montres</h2>
   <div class="produits">
-    <!-- Montres déjà incluses avec modales (Classique, Sport, Prestige) -->
+
+    <!-- Montre Classique -->
+    <div class="produit">
+      <div class="images-produits">
+        <img src="Images/montreclassique.jpg" alt="Montre Classique 1">
+        <img src="Images/montreclassique2.jpg" alt="Montre Classique 2">
+        <img src="Images/montreclassique3.jpg" alt="Montre Classique 3">
+      </div>
+      <h3>Montre Classique</h3>
+      <p>Élégance intemporelle pour toutes les occasions.</p>
+      <a href="#" class="btn voir-plus"
+         data-nom="Montre Classique"
+         data-description="Élégance intemporelle pour toutes les occasions. Mouvement quartz précis, bracelet en cuir véritable."
+         data-prix="149€"
+         data-date="Janvier 2024"
+         data-materiaux="Acier inoxydable, cuir"
+         data-caracteristiques="Étanche 50m, Garantie 2 ans"
+      >Voir plus</a>
+    </div>
+
+    <!-- Montre Sport -->
+    <div class="produit">
+      <div class="images-produits">
+        <img src="Images/montresport.jpg" alt="Montre Sport 1">
+        <img src="Images/montresport2.jpg" alt="Montre Sport 2">
+        <img src="Images/montresport3.jpg" alt="Montre Sport 3">
+      </div>
+      <h3>Montre Sport</h3>
+      <p>Performance et design réunis dans un modèle dynamique.</p>
+      <a href="#" class="btn voir-plus"
+         data-nom="Montre Sport"
+         data-description="Montre sportive conçue pour les aventuriers. Mouvement automatique, bracelet silicone confortable."
+         data-prix="179€"
+         data-date="Mars 2024"
+         data-materiaux="Acier inoxydable, silicone"
+         data-caracteristiques="Étanche 100m, Chronographe, Garantie 2 ans"
+      >Voir plus</a>
+    </div>
+
+    <!-- Montre Prestige -->
+    <div class="produit">
+      <div class="images-produits">
+        <img src="Images/montreprestige.jpg" alt="Montre Prestige 1">
+        <img src="Images/montreprestige2.jpg" alt="Montre Prestige 2">
+        <img src="Images/montreprestige3.jpg" alt="Montre Prestige 3">
+      </div>
+      <h3>Montre Prestige</h3>
+      <p>Un symbole de luxe et de savoir-faire exceptionnel.</p>
+      <a href="#" class="btn voir-plus"
+         data-nom="Montre Prestige"
+         data-description="Montre haut de gamme pour les connaisseurs. Mouvement automatique suisse, cadran en verre saphir."
+         data-prix="499€"
+         data-date="Novembre 2024"
+         data-materiaux="Acier inoxydable, verre saphir"
+         data-caracteristiques="Étanche 50m, Garantie 5 ans, Edition limitée"
+      >Voir plus</a>
+    </div>
+
   </div>
 </section>
 
@@ -371,5 +337,6 @@ document.querySelectorAll(".produit .voir-plus").forEach(btn => {
 closeBtn.onclick = ()=> modal.style.display="none";
 window.onclick = e=> { if(e.target==modal) modal.style.display="none"; }
 </script>
+
 </body>
 </html>
