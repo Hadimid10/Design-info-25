@@ -98,21 +98,38 @@
       padding: 2rem 0;
     }
 
+    /* ===== HERO ===== */
     .hero {
       background: linear-gradient(to right, var(--bleu), var(--gris));
       color: white;
       text-align: center;
       padding: 5rem 2rem;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 1.2s ease;
+      overflow: hidden;
+      position: relative;
     }
 
-    .hero.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
     }
 
+    .hero p {
+      font-size: 1.2rem;
+      white-space: nowrap;
+      display: inline-block;
+      position: absolute;
+      will-change: transform;
+      animation: scrollText 15s linear infinite;
+    }
+
+    @keyframes scrollText {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* ===== PRODUITS ===== */
     .produits {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -179,7 +196,7 @@
       transform: scale(1.1);
     }
 
-    /* ======== MODALE ======== */
+    /* ===== MODALE ===== */
     .modal {
       display: none;
       position: fixed;
@@ -213,10 +230,7 @@
     }
 
     @keyframes zoomIn {
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
+      to { transform: scale(1); opacity: 1; }
     }
 
     .modal-images {
@@ -257,6 +271,40 @@
       color: var(--bleu);
     }
 
+    /* ===== ABOUT & CONTACT ===== */
+    .about, form {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      margin-top: 3rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .about.visible, form.visible { opacity:1; transform: translateY(0); }
+
+    form input, form textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    form button {
+      background: var(--bleu);
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.3s;
+    }
+
+    form button:hover { transform: scale(1.05); background:#094dcc; }
+
     footer {
       text-align: center;
       background: var(--gris);
@@ -268,10 +316,7 @@
       transition: all 1s ease;
     }
 
-    footer.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    footer.visible { opacity:1; transform: translateY(0); }
   </style>
 </head>
 <body>
@@ -290,13 +335,12 @@
 
   <section id="accueil" class="hero">
     <h1>See Watch</h1>
-    <p>Découvrez l'univers fascinant de See Watch, où chaque montre est bien plus qu’un accessoire — c’est une alliance de style, de précision et d’élégance.</p>
+    <p>Découvrez l'univers fascinant de See Watch, où chaque montre transcende le temps pour devenir une alliance parfaite de style, de précision et d'élégance. Nos montres racontent une histoire unique, sublimant chaque moment de votre vie avec raffinement et audace.</p>
   </section>
 
   <section id="boutique" class="container">
     <h2>Nos montres</h2>
     <div class="produits">
-
       <div class="produit">
         <div class="images-produits">
           <img src="Images/montreclassique.jpg" alt="Montre Classique 1">
@@ -329,11 +373,10 @@
         <p>Un symbole de luxe et de savoir-faire exceptionnel.</p>
         <a href="#" class="btn">Voir plus</a>
       </div>
-
     </div>
   </section>
 
-  <!-- Fenêtre modale -->
+  <!-- MODALE -->
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -343,12 +386,28 @@
     </div>
   </div>
 
+  <section id="apropos" class="container about">
+    <h2>À propos de See Watch</h2>
+    <p>Chez <strong>See Watch</strong>, nous croyons que le temps est précieux. Nous créons des montres qui allient esthétique, précision et durabilité. Chaque modèle sublime votre style tout en vous accompagnant au quotidien.</p>
+    <p><strong>See Watch</strong> a été fondée en 2023 par <strong>Hamidou SY</strong>, avec la vision de concevoir des montres intemporelles. En France, l'entreprise s’est rapidement imposée comme un acteur incontournable dans la vente de montres élégantes.</p>
+  </section>
+
+  <section id="contact" class="container">
+    <h2>Contactez-nous</h2>
+    <form>
+      <input type="text" placeholder="Votre nom" required>
+      <input type="email" placeholder="Votre email" required>
+      <textarea rows="5" placeholder="Votre message..." required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
   <footer>
     <p>© 2025 See Watch. Tous droits réservés.</p>
   </footer>
 
   <script>
-    // Animation header
+    // HEADER animation
     window.addEventListener('load', () => {
       document.getElementById('header').classList.add('visible');
       setTimeout(() => {
@@ -357,19 +416,19 @@
       }, 500);
     });
 
-    // Animation au scroll
+    // Scroll animation
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+        if(entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.2 });
 
     document.querySelectorAll('.hero, .produit, .about, form, footer').forEach(el => observer.observe(el));
 
-    // Données détaillées
+    // MODALE
     const details = {
       "Montre Classique": {
-        desc: "L'élégance intemporelle. Boîtier en acier inoxydable, bracelet cuir véritable. Étanche 30m.",
+        desc: "L'élégance intemporelle. Boîtier acier inox, bracelet cuir. Étanche 30m.",
         prix: "199 €",
         mat: "Acier / Cuir",
         style: "Classique & raffiné"
@@ -424,6 +483,5 @@
     closeBtn.addEventListener('click', () => modal.style.display = 'none');
     window.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
   </script>
-
 </body>
 </html>
