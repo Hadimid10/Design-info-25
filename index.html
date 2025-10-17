@@ -21,7 +21,6 @@
     }
     a { color: var(--bleu); text-decoration: none; }
 
-    /* ===== HEADER ===== */
     header {
       background: var(--gris);
       color: white;
@@ -50,7 +49,6 @@
     nav a { color: white; font-weight: 500; transition: color 0.3s; }
     nav a:hover { color: var(--doré); }
 
-    /* ===== HERO ===== */
     .hero {
       background: linear-gradient(to right, var(--bleu), var(--gris));
       color: white;
@@ -76,7 +74,6 @@
       100% { transform: translateX(-100%); }
     }
 
-    /* ===== PRODUITS ===== */
     .container { width: 90%; max-width: 1200px; margin: auto; padding: 2rem 0; }
     .produits { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
     .produit {
@@ -111,7 +108,6 @@
     }
     .btn:hover { background: #e6c200; transform: scale(1.1); }
 
-    /* ===== MODALE ===== */
     .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:999; animation: fadeIn 0.4s ease; }
     @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
     .modal-content { background:white; border-radius:12px; max-width:600px; width:90%; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.3); text-align:center; transform: scale(0.9); opacity:0; animation: zoomIn 0.4s forwards; }
@@ -123,13 +119,11 @@
     .modal-description { text-align:left; margin-top:1rem; line-height:1.6; }
     .modal-description strong { color: var(--bleu); }
 
-    /* ===== VALEURS ===== */
     .valeurs { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:2rem; }
     .valeur { background:white; border-radius:12px; padding:1.5rem; box-shadow:0 4px 8px rgba(0,0,0,0.05); opacity:0; transform: translateY(40px); transition: all 0.8s ease; }
     .valeur.visible { opacity:1; transform:translateY(0); }
     .valeur h3 { color: var(--bleu); margin-bottom:0.5rem; }
 
-    /* ===== ABOUT & CONTACT ===== */
     .about, form { background:white; border-radius:12px; padding:2rem; box-shadow:0 4px 8px rgba(0,0,0,0.05); margin-top:3rem; opacity:0; transform: translateY(40px); transition: all 1s ease; }
     .about.visible, form.visible { opacity:1; transform: translateY(0); }
     form input, form textarea { padding:0.8rem; border:1px solid #ccc; border-radius:8px; font-size:1rem; }
@@ -142,162 +136,191 @@
 </head>
 <body>
 
-  <header id="header">
-    <div class="logo" id="logo">
-      <img src="Images/logo-see_watch.png" alt="Logo See Watch">
-    </div>
-    <nav id="menu">
-      <a href="#accueil">Accueil</a>
-      <a href="#boutique">Boutique</a>
-      <a href="#valeurs">Nos Valeurs</a>
-      <a href="#apropos">À propos</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header id="header">
+  <div class="logo" id="logo">
+    <img src="Images/logo-see_watch.png" alt="Logo See Watch">
+  </div>
+  <nav id="menu">
+    <a href="#accueil">Accueil</a>
+    <a href="#boutique">Boutique</a>
+    <a href="#valeurs">Nos Valeurs</a>
+    <a href="#apropos">À propos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <section id="accueil" class="hero">
-    <h1>See Watch</h1>
-    <div class="scroll-text">
-      <span>Découvrez l'univers fascinant de See Watch…</span>
-      <span>Chaque montre transcende le temps pour allier style, précision et élégance…</span>
-      <span>Des créations uniques qui subliment chaque instant de votre vie…</span>
-    </div>
-  </section>
+<section id="accueil" class="hero">
+  <h1>See Watch</h1>
+  <div class="scroll-text">
+    <span>Découvrez l'univers fascinant de See Watch…</span>
+    <span>Chaque montre transcende le temps pour allier style, précision et élégance…</span>
+    <span>Des créations uniques qui subliment chaque instant de votre vie…</span>
+  </div>
+</section>
 
-  <section id="boutique" class="container">
-    <h2>Nos montres</h2>
-    <div class="produits">
-      <!-- Exemple Montre Classique -->
-      <div class="produit">
-        <div class="images-produits">
-          <img src="Images/montreclassique.jpg" alt="Montre Classique 1">
-          <img src="Images/montreclassique2.jpg" alt="Montre Classique 2">
-          <img src="Images/montreclassique3.jpg" alt="Montre Classique 3">
-        </div>
-        <h3>Montre Classique</h3>
-        <p>Élégance intemporelle pour toutes les occasions.</p>
-        <a href="#" class="btn voir-plus"
-           data-nom="Montre Classique"
-           data-description="Élégance intemporelle pour toutes les occasions. Mouvement quartz précis, bracelet en cuir véritable."
-           data-prix="149€"
-           data-date="Janvier 2024"
-           data-materiaux="Acier inoxydable, cuir"
-           data-caracteristiques="Étanche 50m, Garantie 2 ans"
-        >Voir plus</a>
+<section id="boutique" class="container">
+  <h2>Nos montres</h2>
+  <div class="produits">
+    <!-- Montre Classique -->
+    <div class="produit">
+      <div class="images-produits">
+        <img src="Images/montreclassique.jpg" alt="Montre Classique 1">
+        <img src="Images/montreclassique2.jpg" alt="Montre Classique 2">
+        <img src="Images/montreclassique3.jpg" alt="Montre Classique 3">
       </div>
-      <!-- Ajouter les autres produits de façon similaire avec leurs data-* -->
+      <h3>Montre Classique</h3>
+      <p>Élégance intemporelle pour toutes les occasions.</p>
+      <a href="#" class="btn voir-plus"
+         data-nom="Montre Classique"
+         data-description="Élégance intemporelle pour toutes les occasions. Mouvement quartz précis, bracelet en cuir véritable."
+         data-prix="149€"
+         data-date="Janvier 2024"
+         data-materiaux="Acier inoxydable, cuir"
+         data-caracteristiques="Étanche 50m, Garantie 2 ans"
+      >Voir plus</a>
     </div>
-  </section>
-
-  <section id="valeurs" class="container">
-    <h2>Nos Valeurs</h2>
-    <div class="valeurs">
-      <div class="valeur">
-        <h3>Qualité & Précision</h3>
-        <p>Chaque montre est minutieusement fabriquée pour garantir performance et durabilité.</p>
+    <!-- Montre Sport -->
+    <div class="produit">
+      <div class="images-produits">
+        <img src="Images/montresport.jpg" alt="Montre Sport 1">
+        <img src="Images/montresport2.jpg" alt="Montre Sport 2">
+        <img src="Images/montresport3.jpg" alt="Montre Sport 3">
       </div>
-      <div class="valeur">
-        <h3>Design Durable</h3>
-        <p>Nos modèles allient esthétique intemporelle et matériaux respectueux de l’environnement.</p>
-      </div>
-      <div class="valeur">
-        <h3>Service Premium</h3>
-        <p>Nous vous accompagnons avant, pendant et après votre achat pour une expérience unique.</p>
-      </div>
-      <div class="valeur">
-        <h3>Innovation & Artisanat</h3>
-        <p>Un équilibre entre savoir-faire artisanal et technologies modernes pour des montres uniques.</p>
-      </div>
+      <h3>Montre Sport</h3>
+      <p>Performance et design réunis dans un modèle dynamique.</p>
+      <a href="#" class="btn voir-plus"
+         data-nom="Montre Sport"
+         data-description="Montre sportive conçue pour les aventuriers. Mouvement automatique, bracelet silicone confortable."
+         data-prix="179€"
+         data-date="Mars 2024"
+         data-materiaux="Acier inoxydable, silicone"
+         data-caracteristiques="Étanche 100m, Chronographe, Garantie 2 ans"
+      >Voir plus</a>
     </div>
-  </section>
-
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3 id="modal-title"></h3>
-      <div id="modal-images" class="modal-images"></div>
-      <div class="modal-description">
-        <p id="modal-desc"></p>
-        <p><strong>Prix :</strong> <span id="modal-prix"></span></p>
-        <p><strong>Date de sortie :</strong> <span id="modal-date"></span></p>
-        <p><strong>Matériaux :</strong> <span id="modal-materiaux"></span></p>
-        <p><strong>Caractéristiques :</strong> <span id="modal-carac"></span></p>
+    <!-- Montre Prestige -->
+    <div class="produit">
+      <div class="images-produits">
+        <img src="Images/montreprestige.jpg" alt="Montre Prestige 1">
+        <img src="Images/montreprestige2.jpg" alt="Montre Prestige 2">
+        <img src="Images/montreprestige3.jpg" alt="Montre Prestige 3">
       </div>
+      <h3>Montre Prestige</h3>
+      <p>Un symbole de luxe et de savoir-faire exceptionnel.</p>
+      <a href="#" class="btn voir-plus"
+         data-nom="Montre Prestige"
+         data-description="Montre haut de gamme pour les connaisseurs. Mouvement automatique suisse, cadran en verre saphir."
+         data-prix="499€"
+         data-date="Novembre 2024"
+         data-materiaux="Acier inoxydable, verre saphir"
+         data-caracteristiques="Étanche 50m, Garantie 5 ans, Edition limitée"
+      >Voir plus</a>
     </div>
   </div>
+</section>
 
-  <section id="apropos" class="container about">
-    <h2>À propos de See Watch</h2>
-    <div>
-      <p>Chez <strong>See Watch</strong>, nous croyons que le temps est bien plus qu'une mesure : c’est une expérience, un style de vie. Chaque montre que nous créons accompagne vos moments les plus précieux avec précision, design et élégance intemporelle.</p>
-      <p>L’aventure a commencé en 2023 avec <strong>Hamidou SY</strong>, passionné d’horlogerie et d’innovation. Son ambition était claire : créer des montres qui racontent une histoire et deviennent des compagnons fidèles. Rapidement, ses créations uniques ont séduit un large public au Sénégal, faisant de See Watch une marque émergente reconnue pour son raffinement et sa qualité exceptionnelle.</p>
-      <p>En France, Hamidou rencontre <strong>Monique</strong>, communicante brillante et passionnée. Ensemble, ils réinventent See Watch pour le marché européen, conservant le mélange parfait de tradition et d’innovation. Le lancement officiel en 2025 marque un tournant : les montres See Watch deviennent des pièces convoitées, appréciées pour leur style unique et leur fiabilité horlogère.</p>
-      <p>Aujourd’hui, See Watch ne se contente pas de vendre des montres ; chaque modèle raconte une histoire, célèbre le savoir-faire artisanal et accompagne nos clients avec un service irréprochable. Notre ambition : transformer chaque seconde en un moment précieux et chaque montre en une œuvre d’art reflétant votre personnalité.</p>
+<section id="valeurs" class="container">
+  <h2>Nos Valeurs</h2>
+  <div class="valeurs">
+    <div class="valeur">
+      <h3>Qualité & Précision</h3>
+      <p>Chaque montre est minutieusement fabriquée pour garantir performance et durabilité.</p>
     </div>
-  </section>
+    <div class="valeur">
+      <h3>Style & Élégance</h3>
+      <p>Nos modèles reflètent votre personnalité et subliment chaque instant.</p>
+    </div>
+    <div class="valeur">
+      <h3>Innovation & Technologie</h3>
+      <p>Allier tradition horlogère et innovations modernes pour des montres uniques.</p>
+    </div>
+  </div>
+</section>
 
-  <section id="contact" class="container">
-    <h2>Contactez-nous</h2>
-    <form>
-      <input type="text" placeholder="Votre nom" required>
-      <input type="email" placeholder="Votre email" required>
-      <textarea rows="5" placeholder="Votre message..." required></textarea>
-      <button type="submit">Envoyer</button>
-    </form>
-  </section>
+<section id="apropos" class="container">
+  <h2>À propos de See Watch</h2>
+  <div class="about">
+    <p>Chez <strong>See Watch</strong>, le temps n’est pas seulement une mesure, c’est une expérience. Nous concevons des montres qui combinent élégance, qualité et précision, pour que chaque instant compte.</p>
+    <p><strong>See Watch</strong> a été fondée en 2023 par <strong>Hamidou SY</strong> avec une passion pour l’horlogerie et le style intemporel. Dès les premiers modèles, notre vision a séduit un large public au Sénégal.</p>
+    <p>En France, l’équipe s’est enrichie avec <strong>Monique</strong>, communicante brillante, permettant à See Watch de conquérir de nouveaux marchés dès 2025.</p>
+    <p>Aujourd’hui, See Watch allie tradition, innovation et raffinement pour créer des montres uniques, admirées par les amateurs et collectionneurs à travers tout le pays.</p>
+  </div>
+</section>
 
-  <footer>
-    <p>© 2025 See Watch. Tous droits réservés.</p>
-  </footer>
+<section id="contact" class="container">
+  <h2>Contactez-nous</h2>
+  <form>
+    <input type="text" placeholder="Votre nom" required>
+    <input type="email" placeholder="Votre email" required>
+    <textarea rows="5" placeholder="Votre message..." required></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+</section>
 
-  <script>
-    // ===== ANIMATION AU SCROLL =====
-    const observer = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){ entry.target.classList.add('visible'); }
-      });
-    }, {threshold:0.2});
+<footer>
+  <p>© 2025 See Watch. Tous droits réservés.</p>
+</footer>
 
-    document.querySelectorAll('header, nav, .produit, .valeur, .about, form, footer').forEach(el=>{
-      observer.observe(el);
+<!-- MODALE -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="modal-title"></h3>
+    <div class="modal-images" id="modal-images"></div>
+    <div class="modal-description">
+      <p id="modal-desc"></p>
+      <p><strong>Prix :</strong> <span id="modal-prix"></span></p>
+      <p><strong>Date de sortie :</strong> <span id="modal-date"></span></p>
+      <p><strong>Matériaux :</strong> <span id="modal-materiaux"></span></p>
+      <p><strong>Caractéristiques :</strong> <span id="modal-carac"></span></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ANIMATIONS AU SCROLL
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('visible'); }
     });
+  }, {threshold:0.2});
+  document.querySelectorAll('header, nav, .produit, .valeur, .about, form, footer').forEach(el=> observer.observe(el));
 
-    // ===== MODALE =====
-    const modal = document.getElementById("modal");
-    const modalTitle = document.getElementById("modal-title");
-    const modalImages = document.getElementById("modal-images");
-    const modalDesc = document.getElementById("modal-desc");
-    const modalPrix = document.getElementById("modal-prix");
-    const modalDate = document.getElementById("modal-date");
-    const modalMateriaux = document.getElementById("modal-materiaux");
-    const modalCarac = document.getElementById("modal-carac");
-    const closeBtn = document.querySelector(".close");
+  // MODALE
+  const modal = document.getElementById("modal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalImages = document.getElementById("modal-images");
+  const modalDesc = document.getElementById("modal-desc");
+  const modalPrix = document.getElementById("modal-prix");
+  const modalDate = document.getElementById("modal-date");
+  const modalMateriaux = document.getElementById("modal-materiaux");
+  const modalCarac = document.getElementById("modal-carac");
+  const closeBtn = document.querySelector(".close");
 
-    document.querySelectorAll(".produit .voir-plus").forEach(btn => {
-      btn.addEventListener("click", e => {
-        e.preventDefault();
-        const produit = btn.closest(".produit");
-        modalTitle.textContent = btn.dataset.nom;
-        modalDesc.textContent = btn.dataset.description;
-        modalPrix.textContent = btn.dataset.prix;
-        modalDate.textContent = btn.dataset.date;
-        modalMateriaux.textContent = btn.dataset.materiaux;
-        modalCarac.textContent = btn.dataset.caracteristiques;
+  document.querySelectorAll(".produit .voir-plus").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.preventDefault();
+      const produit = btn.closest(".produit");
+      modalTitle.textContent = btn.dataset.nom;
+      modalDesc.textContent = btn.dataset.description;
+      modalPrix.textContent = btn.dataset.prix;
+      modalDate.textContent = btn.dataset.date;
+      modalMateriaux.textContent = btn.dataset.materiaux;
+      modalCarac.textContent = btn.dataset.caracteristiques;
 
-        modalImages.innerHTML = "";
-        produit.querySelectorAll(".images-produits img").forEach(img => {
-          let newImg = document.createElement("img");
-          newImg.src = img.src;
-          newImg.alt = img.alt;
-          modalImages.appendChild(newImg);
-        });
-        modal.style.display = "flex";
+      modalImages.innerHTML = "";
+      produit.querySelectorAll(".images-produits img").forEach(img => {
+        let newImg = document.createElement("img");
+        newImg.src = img.src;
+        newImg.alt = img.alt;
+        modalImages.appendChild(newImg);
       });
+      modal.style.display = "flex";
     });
+  });
 
-    closeBtn.onclick = ()=> modal.style.display="none";
-    window.onclick = e=> { if(e.target==modal) modal.style.display="none"; }
-  </script>
+  closeBtn.onclick = ()=> modal.style.display="none";
+  window.onclick = e=> { if(e.target==modal) modal.style.display="none"; }
+</script>
 
 </body>
 </html>
