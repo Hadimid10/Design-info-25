@@ -21,6 +21,7 @@
     }
     a { color: var(--bleu); text-decoration: none; }
 
+    /* HEADER */
     header {
       background: var(--gris);
       color: white;
@@ -29,44 +30,43 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      transform: translateY(-100%);
-      opacity: 0;
-      transition: transform 1s ease, opacity 1s ease;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
     }
-    header.visible { transform: translateY(0); opacity: 1; }
-    .logo { display: flex; align-items: center; gap: 0.5rem; }
     .logo img { height: 150px; transition: transform 0.6s ease; }
     .logo img:hover { transform: scale(1.05); }
-    nav {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      opacity: 0;
-      transform: translateY(-20px);
-      transition: transform 1s ease, opacity 1s ease;
-    }
-    nav.visible { opacity: 1; transform: translateY(0); }
+    nav { display: flex; gap: 2rem; flex-wrap: wrap; }
     nav a { color: white; font-weight: 500; transition: color 0.3s; }
     nav a:hover { color: var(--doré); }
 
+    /* HERO */
     .hero {
       background: linear-gradient(to right, var(--bleu), var(--gris));
       color: white;
       text-align: center;
-      padding: 5rem 2rem;
+      padding: 8rem 2rem 5rem 2rem;
       position: relative;
       overflow: hidden;
     }
-    .hero h1 { font-size: 3rem; margin-bottom: 1rem; position: relative; z-index: 2; }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
     .hero .scroll-text {
       display: flex;
       white-space: nowrap;
       position: absolute;
       width: 100%;
       animation: scrollText 20s linear infinite;
-      top: 50%;
-      transform: translateY(-50%);
+      bottom: 10px;
+      left: 0;
       font-size: 1.3rem;
+      z-index: 1;
+      opacity: 0.9;
     }
     .hero .scroll-text span { margin-right: 50px; display: inline-block; }
     @keyframes scrollText {
@@ -74,8 +74,11 @@
       100% { transform: translateX(-100%); }
     }
 
+    /* CONTAINER */
     .container { width: 90%; max-width: 1200px; margin: auto; padding: 2rem 0; }
-    .produits { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+
+    /* PRODUITS */
+    .produits { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 2rem; margin-top: 2rem; }
     .produit {
       background: white;
       border-radius: 12px;
@@ -89,25 +92,14 @@
     .produit.visible { opacity:1; transform: translateY(0); transition: all 0.8s ease; }
     .produit:hover { transform: translateY(-5px) scale(1.03); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
     .images-produits { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1rem; }
-    .images-produits img {
-      width: 100px;
-      border-radius: 6px;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-    }
-    .images-produits img:hover { transform: scale(1.15) rotate(5deg); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+    .images-produits img { width: 100px; border-radius: 6px; transition: transform 0.5s ease, box-shadow 0.5s ease; }
+    .images-produits img:hover { transform: scale(1.15) rotate(5deg); box-shadow:0 8px 20px rgba(0,0,0,0.2); }
     .produit h3 { margin-top: 1rem; color: var(--bleu); }
     .produit p { margin: 0.5rem 0; }
-    .btn {
-      background: var(--doré);
-      color: var(--gris);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background 0.3s, transform 0.3s;
-      display: inline-block;
-    }
-    .btn:hover { background: #e6c200; transform: scale(1.1); }
+    .btn { background: var(--doré); color: var(--gris); padding: 0.5rem 1rem; border-radius: 8px; font-weight:600; transition: background 0.3s, transform 0.3s; display: inline-block; }
+    .btn:hover { background:#e6c200; transform: scale(1.1); }
 
+    /* MODALE */
     .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:999; animation: fadeIn 0.4s ease; }
     @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
     .modal-content { background:white; border-radius:12px; max-width:600px; width:90%; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.3); text-align:center; transform: scale(0.9); opacity:0; animation: zoomIn 0.4s forwards; }
@@ -119,17 +111,20 @@
     .modal-description { text-align:left; margin-top:1rem; line-height:1.6; }
     .modal-description strong { color: var(--bleu); }
 
+    /* VALEURS */
     .valeurs { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:2rem; }
     .valeur { background:white; border-radius:12px; padding:1.5rem; box-shadow:0 4px 8px rgba(0,0,0,0.05); opacity:0; transform: translateY(40px); transition: all 0.8s ease; }
     .valeur.visible { opacity:1; transform:translateY(0); }
     .valeur h3 { color: var(--bleu); margin-bottom:0.5rem; }
 
+    /* ABOUT & CONTACT */
     .about, form { background:white; border-radius:12px; padding:2rem; box-shadow:0 4px 8px rgba(0,0,0,0.05); margin-top:3rem; opacity:0; transform: translateY(40px); transition: all 1s ease; }
     .about.visible, form.visible { opacity:1; transform: translateY(0); }
     form input, form textarea { padding:0.8rem; border:1px solid #ccc; border-radius:8px; font-size:1rem; }
     form button { background:var(--bleu); color:white; border:none; padding:0.8rem; border-radius:8px; cursor:pointer; font-weight:600; transition: transform 0.3s; }
     form button:hover { transform:scale(1.05); background:#094dcc; }
 
+    /* FOOTER */
     footer { text-align:center; background:var(--gris); color:white; padding:1rem; margin-top:3rem; opacity:0; transform: translateY(30px); transition: all 1s ease; }
     footer.visible { opacity:1; transform:translateY(0); }
   </style>
@@ -179,6 +174,7 @@
          data-caracteristiques="Étanche 50m, Garantie 2 ans"
       >Voir plus</a>
     </div>
+
     <!-- Montre Sport -->
     <div class="produit">
       <div class="images-produits">
@@ -197,6 +193,7 @@
          data-caracteristiques="Étanche 100m, Chronographe, Garantie 2 ans"
       >Voir plus</a>
     </div>
+
     <!-- Montre Prestige -->
     <div class="produit">
       <div class="images-produits">
@@ -223,7 +220,7 @@
   <div class="valeurs">
     <div class="valeur">
       <h3>Qualité & Précision</h3>
-      <p>Chaque montre est minutieusement fabriquée pour garantir performance et durabilité.</p>
+      <p>Chaque montre est conçue avec le plus grand soin et précision.</p>
     </div>
     <div class="valeur">
       <h3>Style & Élégance</h3>
@@ -240,9 +237,8 @@
   <h2>À propos de See Watch</h2>
   <div class="about">
     <p>Chez <strong>See Watch</strong>, le temps n’est pas seulement une mesure, c’est une expérience. Nous concevons des montres qui combinent élégance, qualité et précision, pour que chaque instant compte.</p>
-    <p><strong>See Watch</strong> a été fondée en 2023 par <strong>Hamidou SY</strong> avec une passion pour l’horlogerie et le style intemporel. Dès les premiers modèles, notre vision a séduit un large public au Sénégal.</p>
-    <p>En France, l’équipe s’est enrichie avec <strong>Monique</strong>, communicante brillante, permettant à See Watch de conquérir de nouveaux marchés dès 2025.</p>
-    <p>Aujourd’hui, See Watch allie tradition, innovation et raffinement pour créer des montres uniques, admirées par les amateurs et collectionneurs à travers tout le pays.</p>
+    <p>Fondée en 2023 par <strong>Hamidou SY</strong> au Sénégal, la marque a séduit dès ses débuts par son style unique et ses modèles raffinés. En 2025, avec l’arrivée de <strong>Monique</strong>, communicante passionnée, See Watch s’implante en France et conquiert rapidement un large public.</p>
+    <p>Notre histoire est celle d’une fusion entre tradition horlogère et modernité, offrant des montres élégantes, innovantes et accessibles. Aujourd’hui, See Watch est reconnue comme un acteur incontournable sur le marché des montres élégantes, apprécié par les collectionneurs et amateurs de style.</p>
   </div>
 </section>
 
@@ -277,13 +273,13 @@
 </div>
 
 <script>
-  // ANIMATIONS AU SCROLL
+  // ANIMATION AU SCROLL
   const observer = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){ entry.target.classList.add('visible'); }
     });
   }, {threshold:0.2});
-  document.querySelectorAll('header, nav, .produit, .valeur, .about, form, footer').forEach(el=> observer.observe(el));
+  document.querySelectorAll('.produit, .valeur, .about, form, footer').forEach(el=> observer.observe(el));
 
   // MODALE
   const modal = document.getElementById("modal");
@@ -321,6 +317,5 @@
   closeBtn.onclick = ()=> modal.style.display="none";
   window.onclick = e=> { if(e.target==modal) modal.style.display="none"; }
 </script>
-
 </body>
 </html>
