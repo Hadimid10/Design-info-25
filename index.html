@@ -19,7 +19,7 @@ body {
   color: var(--gris);
   line-height: 1.6;
   overflow-x: hidden;
-  padding-top: 140px; /* espace pour header fixe */
+  padding-top: 120px;
   scroll-behavior: smooth;
 }
 a { color: var(--bleu); text-decoration: none; }
@@ -28,7 +28,7 @@ a { color: var(--bleu); text-decoration: none; }
 header {
   background: var(--gris);
   color: white;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,12 +37,12 @@ header {
   width: 100%;
   top: 0;
   z-index: 100;
-  height: 120px;
+  height: 100px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
-.logo img { height: 100px; transition: transform 0.6s ease; }
+.logo img { height: 70px; transition: transform 0.6s ease; }
 .logo img:hover { transform: scale(1.05); }
-nav { display: flex; gap: 2rem; flex-wrap: wrap; }
+nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 nav a { color: white; font-weight: 500; transition: color 0.3s; }
 nav a:hover { color: var(--doré); }
 
@@ -77,7 +77,7 @@ nav a:hover { color: var(--doré); }
 @keyframes scrollText { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
 /* SECTIONS */
-section { scroll-margin-top: 130px; } /* pour header fixe */
+section { scroll-margin-top: 110px; }
 
 /* CONTAINER */
 .container { width: 90%; max-width: 1200px; margin: auto; padding: 2rem 0; }
@@ -185,7 +185,6 @@ footer.visible { opacity:1; transform:translateY(0); }
 <section id="boutique" class="container">
   <h2>Nos montres</h2>
   <div class="produits">
-
     <!-- Montre Classique -->
     <div class="produit">
       <div class="images-produits">
@@ -243,15 +242,26 @@ footer.visible { opacity:1; transform:translateY(0); }
       >Voir plus</a>
     </div>
 
+    <!-- Tu peux ajouter d'autres montres ici de la même manière -->
+
   </div>
 </section>
 
 <section id="valeurs" class="container">
   <h2>Nos Valeurs</h2>
   <div class="valeurs">
-    <div class="valeur"><h3>Qualité & Précision</h3><p>Chaque montre est conçue avec soin pour garantir fiabilité et longévité.</p></div>
-    <div class="valeur"><h3>Style & Élégance</h3><p>Nos modèles reflètent votre personnalité et subliment chaque instant.</p></div>
-    <div class="valeur"><h3>Innovation & Technologie</h3><p>Allier tradition horlogère et innovations modernes pour des montres uniques.</p></div>
+    <div class="valeur">
+      <h3>Qualité & Précision</h3>
+      <p>Chaque montre est conçue avec le plus grand soin et précision.</p>
+    </div>
+    <div class="valeur">
+      <h3>Style & Élégance</h3>
+      <p>Nos modèles reflètent votre personnalité et subliment chaque instant.</p>
+    </div>
+    <div class="valeur">
+      <h3>Innovation & Technologie</h3>
+      <p>Allier tradition horlogère et innovations modernes pour des montres uniques.</p>
+    </div>
   </div>
 </section>
 
@@ -295,47 +305,45 @@ footer.visible { opacity:1; transform:translateY(0); }
 </div>
 
 <script>
+// ANIMATION AU SCROLL
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){ entry.target.classList.add('visible'); }
   });
-}, {threshold:0.2});
+},{threshold:0.2});
 document.querySelectorAll('.produit, .valeur, .about, form, footer').forEach(el=> observer.observe(el));
 
-const modal = document.getElementById("modal");
-const modalTitle = document.getElementById("modal-title");
-const modalImages = document.getElementById("modal-images");
-const modalDesc = document.getElementById("modal-desc");
-const modalPrix = document.getElementById("modal-prix");
-const modalDate = document.getElementById("modal-date");
-const modalMateriaux = document.getElementById("modal-materiaux");
-const modalCarac = document.getElementById("modal-carac");
-const closeBtn = document.querySelector(".close");
+// MODALE
+const modal = document.getElementById('modal');
+const modalTitle = document.getElementById('modal-title');
+const modalImages = document.getElementById('modal-images');
+const modalDesc = document.getElementById('modal-desc');
+const modalPrix = document.getElementById('modal-prix');
+const modalDate = document.getElementById('modal-date');
+const modalMateriaux = document.getElementById('modal-materiaux');
+const modalCarac = document.getElementById('modal-carac');
 
-document.querySelectorAll(".produit .voir-plus").forEach(btn => {
-  btn.addEventListener("click", e => {
+document.querySelectorAll('.voir-plus').forEach(btn=>{
+  btn.addEventListener('click', e=>{
     e.preventDefault();
-    const produit = btn.closest(".produit");
     modalTitle.textContent = btn.dataset.nom;
     modalDesc.textContent = btn.dataset.description;
     modalPrix.textContent = btn.dataset.prix;
     modalDate.textContent = btn.dataset.date;
     modalMateriaux.textContent = btn.dataset.materiaux;
     modalCarac.textContent = btn.dataset.caracteristiques;
-
-    modalImages.innerHTML = "";
-    produit.querySelectorAll(".images-produits img").forEach(img => {
-      let newImg = document.createElement("img");
-      newImg.src = img.src;
-      newImg.alt = img.alt;
-      modalImages.appendChild(newImg);
+    modalImages.innerHTML = '';
+    btn.closest('.produit').querySelectorAll('img').forEach(img=>{
+      const im = document.createElement('img');
+      im.src = img.src;
+      im.alt = img.alt;
+      modalImages.appendChild(im);
     });
-    modal.style.display = "flex";
+    modal.style.display = 'flex';
   });
 });
-
-closeBtn.onclick = ()=> modal.style.display="none";
-window.onclick = e=> { if(e.target==modal) modal.style.display="none"; }
+document.querySelector('.close').addEventListener('click', ()=>{ modal.style.display='none'; });
+window.addEventListener('click', e=>{ if(e.target==modal){ modal.style.display='none'; } });
 </script>
 
 </body>
