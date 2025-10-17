@@ -18,6 +18,7 @@
       background-color: var(--clair);
       color: var(--gris);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
@@ -33,6 +34,14 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform 1s ease, opacity 1s ease;
+    }
+
+    header.visible {
+      transform: translateY(0);
+      opacity: 1;
     }
 
     .logo {
@@ -43,12 +52,28 @@
 
     .logo img {
       height: 50px;
+      transform: scale(0.8);
+      opacity: 0;
+      transition: transform 1s ease, opacity 1s ease;
+    }
+
+    .logo.visible img {
+      transform: scale(1);
+      opacity: 1;
     }
 
     nav {
       display: flex;
       gap: 2rem;
       flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: transform 1s ease, opacity 1s ease;
+    }
+
+    nav.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     nav a {
@@ -78,17 +103,14 @@
       color: white;
       text-align: center;
       padding: 5rem 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1.2s ease;
     }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: auto;
+    .hero.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .produits {
@@ -104,6 +126,20 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       text-align: center;
       padding: 1.5rem;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .produit.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.8s ease;
+    }
+
+    .produit:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
     .images-produits {
@@ -116,15 +152,16 @@
     .images-produits img {
       width: 100px;
       border-radius: 6px;
+      transition: transform 0.4s ease;
+    }
+
+    .images-produits img:hover {
+      transform: scale(1.05);
     }
 
     .produit h3 {
       margin-top: 1rem;
       color: var(--bleu);
-    }
-
-    .produit p {
-      margin: 0.5rem 0;
     }
 
     .btn {
@@ -133,48 +170,91 @@
       padding: 0.5rem 1rem;
       border-radius: 8px;
       font-weight: 600;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.3s;
+      display: inline-block;
     }
 
     .btn:hover {
       background: #e6c200;
+      transform: scale(1.1);
     }
 
-    .about {
+    /* ======== MODALE ======== */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
       background: white;
       border-radius: 12px;
+      max-width: 600px;
+      width: 90%;
       padding: 2rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      margin-top: 3rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      text-align: center;
+      transform: scale(0.9);
+      opacity: 0;
+      animation: zoomIn 0.4s forwards;
     }
 
-    form {
+    @keyframes zoomIn {
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal-images {
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 500px;
-      margin: 2rem auto;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
     }
 
-    input, textarea {
-      padding: 0.8rem;
-      border: 1px solid #ccc;
+    .modal-images img {
+      width: 120px;
       border-radius: 8px;
-      font-size: 1rem;
     }
 
-    button {
-      background: var(--bleu);
-      color: white;
-      border: none;
-      padding: 0.8rem;
-      border-radius: 8px;
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 28px;
       cursor: pointer;
-      font-weight: 600;
+      color: var(--gris);
+      font-weight: bold;
+      transition: color 0.3s;
     }
 
-    button:hover {
-      background: #094dcc;
+    .close:hover {
+      color: var(--bleu);
+    }
+
+    .modal-description {
+      text-align: left;
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+
+    .modal-description strong {
+      color: var(--bleu);
     }
 
     footer {
@@ -183,16 +263,24 @@
       color: white;
       padding: 1rem;
       margin-top: 3rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    footer.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">
+  <header id="header">
+    <div class="logo" id="logo">
       <img src="Images/logo-see_watch.png" alt="Logo See Watch">
     </div>
-    <nav>
+    <nav id="menu">
       <a href="#accueil">Accueil</a>
       <a href="#boutique">Boutique</a>
       <a href="#apropos">À propos</a>
@@ -245,29 +333,97 @@
     </div>
   </section>
 
-  <section id="apropos" class="container">
-    <h2>À propos de See Watch</h2>
-    <div class="about">
-      <p>Chez <strong>See Watch</strong>, nous croyons que le temps est précieux. C’est pourquoi nous concevons des montres qui allient esthétisme, qualité et précision. Chaque modèle est pensé pour sublimer votre style, tout en vous accompagnant au quotidien.</p>
-      <p><strong>See Watch</strong> a été fondée en 2023 par <strong>Hamidou SY</strong> avec une vision claire : créer des montres qui allient élégance, précision et style intemporel. Dès sa création, l’entreprise a rencontré un succès fulgurant au Sénégal, séduisant un large public grâce à ses modèles uniques et raffinés.</p>
-      <p>Arrivé en France, Hamidou a rencontré <strong>Monique</strong>, une communicante brillante et passionnée, qui a rejoint l’aventure pour relancer et développer <strong>See Watch</strong> sur le marché français en mai 2025. Grâce à cette collaboration, l’entreprise a rapidement su s’imposer et conquérir de nouveaux clients.</p>
-      <p>Aujourd’hui, <strong>See Watch</strong> est devenue un acteur incontournable dans la vente de montres en France, poursuivant sa croissance et gagnant progressivement le cœur des amateurs de montres élégantes à travers tout le pays.</p>
+  <!-- Fenêtre modale -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3 id="modal-title"></h3>
+      <div id="modal-images" class="modal-images"></div>
+      <div id="modal-description" class="modal-description"></div>
     </div>
-  </section>
-
-  <section id="contact" class="container">
-    <h2>Contactez-nous</h2>
-    <form>
-      <input type="text" placeholder="Votre nom" required>
-      <input type="email" placeholder="Votre email" required>
-      <textarea rows="5" placeholder="Votre message..." required></textarea>
-      <button type="submit">Envoyer</button>
-    </form>
-  </section>
+  </div>
 
   <footer>
     <p>© 2025 See Watch. Tous droits réservés.</p>
   </footer>
+
+  <script>
+    // Animation header
+    window.addEventListener('load', () => {
+      document.getElementById('header').classList.add('visible');
+      setTimeout(() => {
+        document.getElementById('logo').classList.add('visible');
+        document.getElementById('menu').classList.add('visible');
+      }, 500);
+    });
+
+    // Animation au scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.hero, .produit, .about, form, footer').forEach(el => observer.observe(el));
+
+    // Données détaillées
+    const details = {
+      "Montre Classique": {
+        desc: "L'élégance intemporelle. Boîtier en acier inoxydable, bracelet cuir véritable. Étanche 30m.",
+        prix: "199 €",
+        mat: "Acier / Cuir",
+        style: "Classique & raffiné"
+      },
+      "Montre Sport": {
+        desc: "Chronographe haute précision, cadran anti-reflet, résistance à l’eau 100m.",
+        prix: "249 €",
+        mat: "Acier / Silicone",
+        style: "Sportif & robuste"
+      },
+      "Montre Prestige": {
+        desc: "Boîtier doré, verre saphir, mouvement automatique suisse. Finition artisanale.",
+        prix: "499 €",
+        mat: "Or / Acier / Saphir",
+        style: "Luxe & prestige"
+      }
+    };
+
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalImgs = document.getElementById('modal-images');
+    const modalDesc = document.getElementById('modal-description');
+    const closeBtn = document.querySelector('.close');
+
+    document.querySelectorAll('.produit').forEach(card => {
+      const btn = card.querySelector('.btn');
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const nom = card.querySelector('h3').textContent;
+        modalTitle.textContent = nom;
+
+        const imgs = card.querySelectorAll('img');
+        modalImgs.innerHTML = '';
+        imgs.forEach(i => {
+          const big = document.createElement('img');
+          big.src = i.src;
+          modalImgs.appendChild(big);
+        });
+
+        const d = details[nom];
+        modalDesc.innerHTML = `
+          <p><strong>Description :</strong> ${d.desc}</p>
+          <p><strong>Prix :</strong> ${d.prix}</p>
+          <p><strong>Matériaux :</strong> ${d.mat}</p>
+          <p><strong>Style :</strong> ${d.style}</p>
+        `;
+
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    window.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
+  </script>
 
 </body>
 </html>
