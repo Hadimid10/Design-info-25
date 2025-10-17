@@ -11,7 +11,6 @@
       --gris: #222;
       --clair: #F7F7F7;
     }
-
     body {
       font-family: "Poppins", sans-serif;
       margin: 0;
@@ -20,7 +19,6 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
     a { color: var(--bleu); text-decoration: none; }
 
     /* ===== HEADER ===== */
@@ -36,16 +34,10 @@
       opacity: 0;
       transition: transform 1s ease, opacity 1s ease;
     }
-
     header.visible { transform: translateY(0); opacity: 1; }
-
     .logo { display: flex; align-items: center; gap: 0.5rem; }
-    .logo img {
-      height: 150px;
-      transition: transform 0.6s ease;
-    }
+    .logo img { height: 150px; transition: transform 0.6s ease; }
     .logo img:hover { transform: scale(1.05); }
-
     nav {
       display: flex;
       gap: 2rem;
@@ -55,7 +47,6 @@
       transition: transform 1s ease, opacity 1s ease;
     }
     nav.visible { opacity: 1; transform: translateY(0); }
-
     nav a { color: white; font-weight: 500; transition: color 0.3s; }
     nav a:hover { color: var(--doré); }
 
@@ -68,9 +59,7 @@
       position: relative;
       overflow: hidden;
     }
-
     .hero h1 { font-size: 3rem; margin-bottom: 1rem; position: relative; z-index: 2; }
-
     .hero .scroll-text {
       display: flex;
       white-space: nowrap;
@@ -81,9 +70,7 @@
       transform: translateY(-50%);
       font-size: 1.3rem;
     }
-
     .hero .scroll-text span { margin-right: 50px; display: inline-block; }
-
     @keyframes scrollText {
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
@@ -92,7 +79,6 @@
     /* ===== PRODUITS ===== */
     .container { width: 90%; max-width: 1200px; margin: auto; padding: 2rem 0; }
     .produits { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
-
     .produit {
       background: white;
       border-radius: 12px;
@@ -105,18 +91,13 @@
     }
     .produit.visible { opacity:1; transform: translateY(0); transition: all 0.8s ease; }
     .produit:hover { transform: translateY(-5px) scale(1.03); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
-
     .images-produits { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1rem; }
     .images-produits img {
       width: 100px;
       border-radius: 6px;
       transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
-    .images-produits img:hover {
-      transform: scale(1.15) rotate(5deg);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-
+    .images-produits img:hover { transform: scale(1.15) rotate(5deg); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
     .produit h3 { margin-top: 1rem; color: var(--bleu); }
     .produit p { margin: 0.5rem 0; }
     .btn {
@@ -133,21 +114,8 @@
     /* ===== MODALE ===== */
     .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:999; animation: fadeIn 0.4s ease; }
     @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
-
-    .modal-content {
-      background:white;
-      border-radius:12px;
-      max-width:600px;
-      width:90%;
-      padding:2rem;
-      box-shadow:0 8px 20px rgba(0,0,0,0.3);
-      text-align:center;
-      transform: scale(0.9);
-      opacity:0;
-      animation: zoomIn 0.4s forwards;
-    }
+    .modal-content { background:white; border-radius:12px; max-width:600px; width:90%; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.3); text-align:center; transform: scale(0.9); opacity:0; animation: zoomIn 0.4s forwards; }
     @keyframes zoomIn { to { transform: scale(1); opacity:1; } }
-
     .modal-images { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:1rem; }
     .modal-images img { width:120px; border-radius:8px; }
     .close { position:absolute; top:15px; right:25px; font-size:28px; cursor:pointer; color:var(--gris); font-weight:bold; transition: color 0.3s; }
@@ -164,7 +132,6 @@
     /* ===== ABOUT & CONTACT ===== */
     .about, form { background:white; border-radius:12px; padding:2rem; box-shadow:0 4px 8px rgba(0,0,0,0.05); margin-top:3rem; opacity:0; transform: translateY(40px); transition: all 1s ease; }
     .about.visible, form.visible { opacity:1; transform: translateY(0); }
-
     form input, form textarea { padding:0.8rem; border:1px solid #ccc; border-radius:8px; font-size:1rem; }
     form button { background:var(--bleu); color:white; border:none; padding:0.8rem; border-radius:8px; cursor:pointer; font-weight:600; transition: transform 0.3s; }
     form button:hover { transform:scale(1.05); background:#094dcc; }
@@ -200,6 +167,7 @@
   <section id="boutique" class="container">
     <h2>Nos montres</h2>
     <div class="produits">
+      <!-- Exemple Montre Classique -->
       <div class="produit">
         <div class="images-produits">
           <img src="Images/montreclassique.jpg" alt="Montre Classique 1">
@@ -208,28 +176,16 @@
         </div>
         <h3>Montre Classique</h3>
         <p>Élégance intemporelle pour toutes les occasions.</p>
-        <a href="#" class="btn">Voir plus</a>
+        <a href="#" class="btn voir-plus"
+           data-nom="Montre Classique"
+           data-description="Élégance intemporelle pour toutes les occasions. Mouvement quartz précis, bracelet en cuir véritable."
+           data-prix="149€"
+           data-date="Janvier 2024"
+           data-materiaux="Acier inoxydable, cuir"
+           data-caracteristiques="Étanche 50m, Garantie 2 ans"
+        >Voir plus</a>
       </div>
-      <div class="produit">
-        <div class="images-produits">
-          <img src="Images/montresport.jpg" alt="Montre Sport 1">
-          <img src="Images/montresport2.jpg" alt="Montre Sport 2">
-          <img src="Images/montresport3.jpg" alt="Montre Sport 3">
-        </div>
-        <h3>Montre Sport</h3>
-        <p>Performance et design réunis dans un modèle dynamique.</p>
-        <a href="#" class="btn">Voir plus</a>
-      </div>
-      <div class="produit">
-        <div class="images-produits">
-          <img src="Images/montreprestige.jpg" alt="Montre Prestige 1">
-          <img src="Images/montreprestige2.jpg" alt="Montre Prestige 2">
-          <img src="Images/montreprestige3.jpg" alt="Montre Prestige 3">
-        </div>
-        <h3>Montre Prestige</h3>
-        <p>Un symbole de luxe et de savoir-faire exceptionnel.</p>
-        <a href="#" class="btn">Voir plus</a>
-      </div>
+      <!-- Ajouter les autres produits de façon similaire avec leurs data-* -->
     </div>
   </section>
 
@@ -260,7 +216,13 @@
       <span class="close">&times;</span>
       <h3 id="modal-title"></h3>
       <div id="modal-images" class="modal-images"></div>
-      <div id="modal-description" class="modal-description"></div>
+      <div class="modal-description">
+        <p id="modal-desc"></p>
+        <p><strong>Prix :</strong> <span id="modal-prix"></span></p>
+        <p><strong>Date de sortie :</strong> <span id="modal-date"></span></p>
+        <p><strong>Matériaux :</strong> <span id="modal-materiaux"></span></p>
+        <p><strong>Caractéristiques :</strong> <span id="modal-carac"></span></p>
+      </div>
     </div>
   </div>
 
@@ -270,7 +232,7 @@
       <p>Chez <strong>See Watch</strong>, nous croyons que le temps est bien plus qu'une mesure : c’est une expérience, un style de vie. Chaque montre que nous créons accompagne vos moments les plus précieux avec précision, design et élégance intemporelle.</p>
       <p>L’aventure a commencé en 2023 avec <strong>Hamidou SY</strong>, passionné d’horlogerie et d’innovation. Son ambition était claire : créer des montres qui racontent une histoire et deviennent des compagnons fidèles. Rapidement, ses créations uniques ont séduit un large public au Sénégal, faisant de See Watch une marque émergente reconnue pour son raffinement et sa qualité exceptionnelle.</p>
       <p>En France, Hamidou rencontre <strong>Monique</strong>, communicante brillante et passionnée. Ensemble, ils réinventent See Watch pour le marché européen, conservant le mélange parfait de tradition et d’innovation. Le lancement officiel en 2025 marque un tournant : les montres See Watch deviennent des pièces convoitées, appréciées pour leur style unique et leur fiabilité horlogère.</p>
-      <p>Aujourd’hui, See Watch ne se contente pas de vendre des montres ; chaque modèle raconte une histoire, célèbre le savoir-faire artisanal et accompagne nos clients avec un service irréprochable. Notre ambition : transformer chaque seconde en un moment précieux et chaque montre en une œuvre d’art reflétant la personnalité de celui ou celle qui la porte.</p>
+      <p>Aujourd’hui, See Watch ne se contente pas de vendre des montres ; chaque modèle raconte une histoire, célèbre le savoir-faire artisanal et accompagne nos clients avec un service irréprochable. Notre ambition : transformer chaque seconde en un moment précieux et chaque montre en une œuvre d’art reflétant votre personnalité.</p>
     </div>
   </section>
 
@@ -289,29 +251,41 @@
   </footer>
 
   <script>
-    // Animations scroll
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('header, nav, .produit, .valeur, .about, form, footer').forEach(el=>{
-        let top = el.getBoundingClientRect().top;
-        if(top < window.innerHeight - 100) el.classList.add('visible');
+    // ===== ANIMATION AU SCROLL =====
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){ entry.target.classList.add('visible'); }
       });
+    }, {threshold:0.2});
+
+    document.querySelectorAll('header, nav, .produit, .valeur, .about, form, footer').forEach(el=>{
+      observer.observe(el);
     });
 
-    // Modal produit
+    // ===== MODALE =====
     const modal = document.getElementById("modal");
     const modalTitle = document.getElementById("modal-title");
     const modalImages = document.getElementById("modal-images");
-    const modalDescription = document.getElementById("modal-description");
+    const modalDesc = document.getElementById("modal-desc");
+    const modalPrix = document.getElementById("modal-prix");
+    const modalDate = document.getElementById("modal-date");
+    const modalMateriaux = document.getElementById("modal-materiaux");
+    const modalCarac = document.getElementById("modal-carac");
     const closeBtn = document.querySelector(".close");
 
-    document.querySelectorAll(".produit .btn").forEach((btn)=>{
-      btn.addEventListener("click",(e)=>{
+    document.querySelectorAll(".produit .voir-plus").forEach(btn => {
+      btn.addEventListener("click", e => {
         e.preventDefault();
         const produit = btn.closest(".produit");
-        modalTitle.textContent = produit.querySelector("h3").textContent;
-        modalDescription.innerHTML = produit.querySelector("p").outerHTML;
+        modalTitle.textContent = btn.dataset.nom;
+        modalDesc.textContent = btn.dataset.description;
+        modalPrix.textContent = btn.dataset.prix;
+        modalDate.textContent = btn.dataset.date;
+        modalMateriaux.textContent = btn.dataset.materiaux;
+        modalCarac.textContent = btn.dataset.caracteristiques;
+
         modalImages.innerHTML = "";
-        produit.querySelectorAll(".images-produits img").forEach(img=>{
+        produit.querySelectorAll(".images-produits img").forEach(img => {
           let newImg = document.createElement("img");
           newImg.src = img.src;
           newImg.alt = img.alt;
@@ -324,5 +298,6 @@
     closeBtn.onclick = ()=> modal.style.display="none";
     window.onclick = e=> { if(e.target==modal) modal.style.display="none"; }
   </script>
+
 </body>
 </html>
