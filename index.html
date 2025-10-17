@@ -11,7 +11,6 @@
   --gris: #222;
   --clair: #F7F7F7;
 }
-
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -19,7 +18,7 @@ body {
   color: var(--gris);
   line-height: 1.6;
   overflow-x: hidden;
-  padding-top: 150px; /* pour header fixe */
+  padding-top: 160px; /* espace pour header fixe */
 }
 a { color: var(--bleu); text-decoration: none; }
 
@@ -36,7 +35,7 @@ header {
   width: 100%;
   top: 0;
   z-index: 100;
-  height: 140px; /* réduit pour éviter de masquer les sections */
+  height: 140px;
 }
 .logo img { height: 120px; transition: transform 0.6s ease; }
 .logo img:hover { transform: scale(1.05); }
@@ -78,14 +77,12 @@ nav a:hover { color: var(--doré); }
 }
 
 /* SECTIONS */
-section {
-  scroll-margin-top: 160px; /* pour liens menu */
-}
+section { scroll-margin-top: 160px; }
 
 /* CONTAINER */
 .container { width: 90%; max-width: 1200px; margin: auto; padding: 2rem 0; }
 
-/* PRODUITS */
+/* BOUTIQUE */
 .produits { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 2rem; margin-top: 2rem; }
 .produit {
   background: white;
@@ -148,7 +145,6 @@ section {
   background: linear-gradient(145deg, #ffffff, #f0f0f0);
   border-radius: 15px;
   padding: 2rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   text-align: center;
   transition: transform 0.4s, box-shadow 0.4s;
   opacity: 0;
@@ -233,11 +229,9 @@ footer.visible { opacity:1; transform:translateY(0); }
 </head>
 <body>
 
-<header id="header">
-  <div class="logo" id="logo">
-    <img src="Images/logo-see_watch.png" alt="Logo See Watch">
-  </div>
-  <nav id="menu">
+<header>
+  <div class="logo"><img src="Images/logo-see_watch.png" alt="Logo See Watch"></div>
+  <nav>
     <a href="#accueil">Accueil</a>
     <a href="#boutique">Boutique</a>
     <a href="#valeurs">Nos Valeurs</a>
@@ -246,7 +240,6 @@ footer.visible { opacity:1; transform:translateY(0); }
   </nav>
 </header>
 
-<!-- HERO -->
 <section id="accueil" class="hero">
   <h1>See Watch</h1>
   <div class="scroll-text">
@@ -256,11 +249,10 @@ footer.visible { opacity:1; transform:translateY(0); }
   </div>
 </section>
 
-<!-- BOUTIQUE -->
 <section id="boutique" class="container">
   <h2>Nos montres</h2>
   <div class="produits">
-    <!-- Exemple Montre Classique -->
+    <!-- Montre Classique -->
     <div class="produit">
       <div class="images-produits">
         <img src="Images/montreclassique.jpg" alt="Montre Classique 1">
@@ -275,14 +267,47 @@ footer.visible { opacity:1; transform:translateY(0); }
          data-prix="149€"
          data-date="Janvier 2024"
          data-materiaux="Acier inoxydable, cuir"
-         data-caracteristiques="Étanche 50m, Garantie 2 ans"
-      >Voir plus</a>
+         data-caracteristiques="Étanche 50m, Garantie 2 ans">Voir plus</a>
     </div>
-    <!-- Ajouter les autres montres ici de la même manière -->
+
+    <!-- Montre Sport -->
+    <div class="produit">
+      <div class="images-produits">
+        <img src="Images/montresport.jpg" alt="Montre Sport 1">
+        <img src="Images/montresport2.jpg" alt="Montre Sport 2">
+        <img src="Images/montresport3.jpg" alt="Montre Sport 3">
+      </div>
+      <h3>Montre Sport</h3>
+      <p>Performance et design réunis dans un modèle dynamique.</p>
+      <a href="#" class="btn voir-plus"
+         data-nom="Montre Sport"
+         data-description="Montre sportive conçue pour les aventuriers. Mouvement automatique, bracelet silicone confortable."
+         data-prix="179€"
+         data-date="Mars 2024"
+         data-materiaux="Acier inoxydable, silicone"
+         data-caracteristiques="Étanche 100m, Chronographe, Garantie 2 ans">Voir plus</a>
+    </div>
+
+    <!-- Montre Prestige -->
+    <div class="produit">
+      <div class="images-produits">
+        <img src="Images/montreprestige.jpg" alt="Montre Prestige 1">
+        <img src="Images/montreprestige2.jpg" alt="Montre Prestige 2">
+        <img src="Images/montreprestige3.jpg" alt="Montre Prestige 3">
+      </div>
+      <h3>Montre Prestige</h3>
+      <p>Un symbole de luxe et de savoir-faire exceptionnel.</p>
+      <a href="#" class="btn voir-plus"
+         data-nom="Montre Prestige"
+         data-description="Montre haut de gamme pour les connaisseurs. Mouvement automatique suisse, cadran en verre saphir."
+         data-prix="499€"
+         data-date="Novembre 2024"
+         data-materiaux="Acier inoxydable, verre saphir"
+         data-caracteristiques="Étanche 50m, Garantie 5 ans, Edition limitée">Voir plus</a>
+    </div>
   </div>
 </section>
 
-<!-- VALEURS -->
 <section id="valeurs" class="container">
   <h2>Nos Valeurs</h2>
   <div class="valeurs">
@@ -301,7 +326,6 @@ footer.visible { opacity:1; transform:translateY(0); }
   </div>
 </section>
 
-<!-- À PROPOS -->
 <section id="apropos" class="container">
   <h2>À propos de See Watch</h2>
   <div class="about">
@@ -311,7 +335,6 @@ footer.visible { opacity:1; transform:translateY(0); }
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="container">
   <h2>Contactez-nous</h2>
   <form>
@@ -322,7 +345,6 @@ footer.visible { opacity:1; transform:translateY(0); }
   </form>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2025 See Watch. Tous droits réservés.</p>
 </footer>
@@ -343,9 +365,8 @@ footer.visible { opacity:1; transform:translateY(0); }
   </div>
 </div>
 
-<!-- JS -->
 <script>
-  // Animation au scroll
+  // ANIMATION AU SCROLL
   const observer = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){ entry.target.classList.add('visible'); }
@@ -389,6 +410,5 @@ footer.visible { opacity:1; transform:translateY(0); }
   closeBtn.onclick = ()=> modal.style.display="none";
   window.onclick = e=> { if(e.target==modal) modal.style.display="none"; }
 </script>
-
 </body>
 </html>
