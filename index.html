@@ -21,7 +21,7 @@ body {
   color: var(--gris);
   line-height: 1.6;
   overflow-x: hidden;
-  padding-top: 70px; /* header fixe */
+  padding-top: 140px; /* header haut pour logo grand */
   scroll-behavior: smooth;
 }
 a { color: var(--bleu); text-decoration: none; }
@@ -38,21 +38,21 @@ header {
   width: 100%;
   top: 0;
   z-index: 100;
-  height: 60px;
+  height: 120px; /* hauteur suffisante pour logo grand */
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
-.logo img { height: 35px; transition: transform 0.6s ease; }
-.logo img:hover { transform: scale(1.05); }
+header .logo img { height: 120px; transition: transform 0.6s ease; }
+header .logo img:hover { transform: scale(1.05); }
 
 nav {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* permet menu sur plusieurs lignes si nécessaire */
 }
 nav a {
   color: white;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 1rem;
   white-space: nowrap;
   transition: color 0.3s;
 }
@@ -62,10 +62,11 @@ nav a:hover { color: var(--doré); }
 .menu-toggle {
   display: none;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  color: white;
 }
 @media(max-width:768px){
-  nav { display: none; flex-direction: column; background: var(--gris); position: absolute; top:60px; right:0; width:200px; padding:1rem; border-radius:0 0 0 8px; }
+  nav { display: none; flex-direction: column; background: var(--gris); position: absolute; top:130px; right:0; padding:1rem; border-radius:0 0 0 8px; width:200px; }
   nav.open { display: flex; }
   .menu-toggle { display: block; }
 }
@@ -80,7 +81,7 @@ nav a:hover { color: var(--doré); }
   overflow: hidden;
 }
 .hero h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 1rem;
   position: relative;
   z-index: 2;
@@ -101,7 +102,7 @@ nav a:hover { color: var(--doré); }
 @keyframes scrollText { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
 /* SECTIONS */
-section { scroll-margin-top: 70px; }
+section { scroll-margin-top: 140px; } /* header haut */
 
 /* CONTAINER */
 .container { width: 90%; max-width: 1200px; margin: auto; padding: 2rem 0; }
@@ -162,18 +163,21 @@ form { background: linear-gradient(145deg, #ffffff, #f9f9f9); border-radius: 15p
 form.visible { opacity:1; transform:translateY(0); }
 form input, form textarea { width: 100%; margin-bottom: 1rem; padding: 0.9rem; border: 1px solid #ccc; border-radius: 12px; font-size: 1rem; transition: border 0.3s, box-shadow 0.3s; }
 form input:focus, form textarea:focus { border-color: var(--bleu); box-shadow: 0 0 10px rgba(11,103,255,0.2); outline: none; }
-form button { background: var(--gradient-btn); background-size: 200% 200%; color: var(--gris); border: none; padding: 1rem 2rem; border-radius: 12px; font-size: 1.1rem; font-weight:600; cursor: pointer; transition: transform 0.3s, background-position 0.5s; }
-form button:hover { transform: scale(1.05); background-position: right center; }
+form button { background: var(--gradient-btn); background-size: 200% 200%; color: var(--gris); border: none; padding: 0.8rem 1.5rem; border-radius: 12px; font-weight:600; cursor:pointer; transition: transform 0.3s, background-position 0.5s; }
+form button:hover { transform: scale(1.05); background-position: right center; color:#222; }
 
 /* FOOTER */
-footer { text-align:center; background:var(--gris); color:white; padding:1.5rem 0; margin-top:3rem; opacity:0; transform: translateY(30px); transition: all 1s ease; }
+footer { text-align:center; background:var(--gris); color:white; padding:1.5rem; margin-top:3rem; opacity:0; transform: translateY(30px); transition: all 1s ease; }
 footer.visible { opacity:1; transform:translateY(0); }
+
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo"><img src="Images/logo-see_watch.png" alt="Logo See Watch"></div>
+  <div class="logo">
+    <img src="Images/logo-see_watch.png" alt="Logo See Watch">
+  </div>
   <div class="menu-toggle">☰</div>
   <nav>
     <a href="#accueil">Accueil</a>
@@ -212,8 +216,7 @@ footer.visible { opacity:1; transform:translateY(0); }
          data-prix="149€"
          data-date="Janvier 2024"
          data-materiaux="Acier inoxydable, cuir"
-         data-caracteristiques="Étanche 50m, Garantie 2 ans"
-      >Voir plus</a>
+         data-caracteristiques="Étanche 50m, Garantie 2 ans">Voir plus</a>
     </div>
 
     <!-- Montre Sport -->
@@ -231,8 +234,7 @@ footer.visible { opacity:1; transform:translateY(0); }
          data-prix="179€"
          data-date="Mars 2024"
          data-materiaux="Acier inoxydable, silicone"
-         data-caracteristiques="Étanche 100m, Chronographe, Garantie 2 ans"
-      >Voir plus</a>
+         data-caracteristiques="Étanche 100m, Chronographe, Garantie 2 ans">Voir plus</a>
     </div>
 
     <!-- Montre Prestige -->
@@ -250,8 +252,7 @@ footer.visible { opacity:1; transform:translateY(0); }
          data-prix="499€"
          data-date="Novembre 2024"
          data-materiaux="Acier inoxydable, verre saphir"
-         data-caracteristiques="Étanche 50m, Garantie 5 ans, Edition limitée"
-      >Voir plus</a>
+         data-caracteristiques="Étanche 50m, Garantie 5 ans, Edition limitée">Voir plus</a>
     </div>
 
   </div>
@@ -315,20 +316,20 @@ footer.visible { opacity:1; transform:translateY(0); }
 </div>
 
 <script>
-/* Menu hamburger */
+// Hamburger menu
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('nav');
-toggle.addEventListener('click', () => { nav.classList.toggle('open'); });
+toggle.addEventListener('click', () => nav.classList.toggle('open'));
 
-/* ANIMATION AU SCROLL */
-const observer = new IntersectionObserver((entries)=>{
+// ANIMATION AU SCROLL
+const observer = new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){ entry.target.classList.add('visible'); }
   });
 },{threshold:0.2});
 document.querySelectorAll('.produit, .valeur, .about, form, footer').forEach(el=> observer.observe(el));
 
-/* MODALE */
+// MODALE
 const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modal-title");
 const modalImages = document.getElementById("modal-images");
@@ -362,5 +363,6 @@ document.querySelectorAll(".produit .voir-plus").forEach(btn => {
 closeBtn.onclick = ()=> modal.style.display="none";
 window.onclick = e=> { if(e.target==modal) modal.style.display="none"; }
 </script>
+
 </body>
 </html>
