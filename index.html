@@ -21,7 +21,7 @@ body {
   color: var(--gris);
   line-height: 1.6;
   overflow-x: hidden;
-  padding-top: 80px; /* header fixe */
+  padding-top: 70px; /* header fixe */
   scroll-behavior: smooth;
 }
 a { color: var(--bleu); text-decoration: none; }
@@ -33,19 +33,42 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 1rem;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 100;
-  height: 70px; /* compact */
+  height: 60px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
-.logo img { height: 40px; transition: transform 0.6s ease; }
+.logo img { height: 35px; transition: transform 0.6s ease; }
 .logo img:hover { transform: scale(1.05); }
-nav { display: flex; gap: 1.2rem; flex-wrap: wrap; }
-nav a { color: white; font-weight: 500; font-size:0.95rem; transition: color 0.3s; }
+
+nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+nav a {
+  color: white;
+  font-weight: 500;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
 nav a:hover { color: var(--doré); }
+
+/* Hamburger menu mobile */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+@media(max-width:768px){
+  nav { display: none; flex-direction: column; background: var(--gris); position: absolute; top:60px; right:0; width:200px; padding:1rem; border-radius:0 0 0 8px; }
+  nav.open { display: flex; }
+  .menu-toggle { display: block; }
+}
 
 /* HERO */
 .hero {
@@ -78,7 +101,7 @@ nav a:hover { color: var(--doré); }
 @keyframes scrollText { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
 /* SECTIONS */
-section { scroll-margin-top: 80px; } /* compense header fixe */
+section { scroll-margin-top: 70px; }
 
 /* CONTAINER */
 .container { width: 90%; max-width: 1200px; margin: auto; padding: 2rem 0; }
@@ -151,6 +174,7 @@ footer.visible { opacity:1; transform:translateY(0); }
 
 <header>
   <div class="logo"><img src="Images/logo-see_watch.png" alt="Logo See Watch"></div>
+  <div class="menu-toggle">☰</div>
   <nav>
     <a href="#accueil">Accueil</a>
     <a href="#boutique">Boutique</a>
@@ -172,21 +196,91 @@ footer.visible { opacity:1; transform:translateY(0); }
 <section id="boutique" class="container">
   <h2>Nos montres</h2>
   <div class="produits">
-    <!-- Montres et modales comme précédemment -->
+
+    <!-- Montre Classique -->
+    <div class="produit">
+      <div class="images-produits">
+        <img src="Images/montreclassique.jpg" alt="Montre Classique 1">
+        <img src="Images/montreclassique2.jpg" alt="Montre Classique 2">
+        <img src="Images/montreclassique3.jpg" alt="Montre Classique 3">
+      </div>
+      <h3>Montre Classique</h3>
+      <p>Élégance intemporelle pour toutes les occasions.</p>
+      <a href="#" class="btn voir-plus"
+         data-nom="Montre Classique"
+         data-description="Élégance intemporelle pour toutes les occasions. Mouvement quartz précis, bracelet en cuir véritable."
+         data-prix="149€"
+         data-date="Janvier 2024"
+         data-materiaux="Acier inoxydable, cuir"
+         data-caracteristiques="Étanche 50m, Garantie 2 ans"
+      >Voir plus</a>
+    </div>
+
+    <!-- Montre Sport -->
+    <div class="produit">
+      <div class="images-produits">
+        <img src="Images/montresport.jpg" alt="Montre Sport 1">
+        <img src="Images/montresport2.jpg" alt="Montre Sport 2">
+        <img src="Images/montresport3.jpg" alt="Montre Sport 3">
+      </div>
+      <h3>Montre Sport</h3>
+      <p>Performance et design réunis dans un modèle dynamique.</p>
+      <a href="#" class="btn voir-plus"
+         data-nom="Montre Sport"
+         data-description="Montre sportive conçue pour les aventuriers. Mouvement automatique, bracelet silicone confortable."
+         data-prix="179€"
+         data-date="Mars 2024"
+         data-materiaux="Acier inoxydable, silicone"
+         data-caracteristiques="Étanche 100m, Chronographe, Garantie 2 ans"
+      >Voir plus</a>
+    </div>
+
+    <!-- Montre Prestige -->
+    <div class="produit">
+      <div class="images-produits">
+        <img src="Images/montreprestige.jpg" alt="Montre Prestige 1">
+        <img src="Images/montreprestige2.jpg" alt="Montre Prestige 2">
+        <img src="Images/montreprestige3.jpg" alt="Montre Prestige 3">
+      </div>
+      <h3>Montre Prestige</h3>
+      <p>Un symbole de luxe et de savoir-faire exceptionnel.</p>
+      <a href="#" class="btn voir-plus"
+         data-nom="Montre Prestige"
+         data-description="Montre haut de gamme pour les connaisseurs. Mouvement automatique suisse, cadran en verre saphir."
+         data-prix="499€"
+         data-date="Novembre 2024"
+         data-materiaux="Acier inoxydable, verre saphir"
+         data-caracteristiques="Étanche 50m, Garantie 5 ans, Edition limitée"
+      >Voir plus</a>
+    </div>
+
   </div>
 </section>
 
 <section id="valeurs" class="container">
   <h2>Nos Valeurs</h2>
   <div class="valeurs">
-    <!-- Valeurs existantes -->
+    <div class="valeur">
+      <h3>Qualité & Précision</h3>
+      <p>Chaque montre est conçue avec le plus grand soin et précision.</p>
+    </div>
+    <div class="valeur">
+      <h3>Style & Élégance</h3>
+      <p>Nos modèles reflètent votre personnalité et subliment chaque instant.</p>
+    </div>
+    <div class="valeur">
+      <h3>Innovation & Technologie</h3>
+      <p>Allier tradition horlogère et innovations modernes pour des montres uniques.</p>
+    </div>
   </div>
 </section>
 
 <section id="apropos" class="container">
   <h2>À propos de See Watch</h2>
   <div class="about">
-    <!-- Texte À propos -->
+    <p>Chez <strong>See Watch</strong>, le temps n’est pas seulement une mesure, c’est une expérience. Nous concevons des montres qui combinent élégance, qualité et précision, pour que chaque instant compte.</p>
+    <p>Fondée en 2023 par <strong>Hamidou SY</strong> au Sénégal, la marque a séduit dès ses débuts par son style unique et ses modèles raffinés. En 2025, avec l’arrivée de <strong>Monique</strong>, communicante passionnée, See Watch s’implante en France et conquiert rapidement un large public.</p>
+    <p>Notre histoire est celle d’une fusion entre tradition horlogère et modernité, offrant des montres élégantes, innovantes et accessibles. Aujourd’hui, See Watch est reconnue comme un acteur incontournable sur le marché des montres élégantes, apprécié par les collectionneurs et amateurs de style.</p>
   </div>
 </section>
 
@@ -221,7 +315,12 @@ footer.visible { opacity:1; transform:translateY(0); }
 </div>
 
 <script>
-// ANIMATION AU SCROLL
+/* Menu hamburger */
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+toggle.addEventListener('click', () => { nav.classList.toggle('open'); });
+
+/* ANIMATION AU SCROLL */
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){ entry.target.classList.add('visible'); }
@@ -229,38 +328,39 @@ const observer = new IntersectionObserver((entries)=>{
 },{threshold:0.2});
 document.querySelectorAll('.produit, .valeur, .about, form, footer').forEach(el=> observer.observe(el));
 
-// MODALE
-const modal = document.getElementById('modal');
-const modalTitle = document.getElementById('modal-title');
-const modalImages = document.getElementById('modal-images');
-const modalDesc = document.getElementById('modal-desc');
-const modalPrix = document.getElementById('modal-prix');
-const modalDate = document.getElementById('modal-date');
-const modalMateriaux = document.getElementById('modal-materiaux');
-const modalCarac = document.getElementById('modal-carac');
+/* MODALE */
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modal-title");
+const modalImages = document.getElementById("modal-images");
+const modalDesc = document.getElementById("modal-desc");
+const modalPrix = document.getElementById("modal-prix");
+const modalDate = document.getElementById("modal-date");
+const modalMateriaux = document.getElementById("modal-materiaux");
+const modalCarac = document.getElementById("modal-carac");
+const closeBtn = document.querySelector(".close");
 
-document.querySelectorAll('.voir-plus').forEach(btn=>{
-  btn.addEventListener('click', e=>{
+document.querySelectorAll(".produit .voir-plus").forEach(btn => {
+  btn.addEventListener("click", e => {
     e.preventDefault();
+    const produit = btn.closest(".produit");
     modalTitle.textContent = btn.dataset.nom;
     modalDesc.textContent = btn.dataset.description;
     modalPrix.textContent = btn.dataset.prix;
     modalDate.textContent = btn.dataset.date;
     modalMateriaux.textContent = btn.dataset.materiaux;
     modalCarac.textContent = btn.dataset.caracteristiques;
-    modalImages.innerHTML = '';
-    btn.closest('.produit').querySelectorAll('img').forEach(img=>{
-      const im = document.createElement('img');
-      im.src = img.src;
-      im.alt = img.alt;
-      modalImages.appendChild(im);
+    modalImages.innerHTML = "";
+    produit.querySelectorAll(".images-produits img").forEach(img => {
+      let newImg = document.createElement("img");
+      newImg.src = img.src;
+      newImg.alt = img.alt;
+      modalImages.appendChild(newImg);
     });
-    modal.style.display = 'flex';
+    modal.style.display = "flex";
   });
 });
-document.querySelector('.close').addEventListener('click', ()=>{ modal.style.display='none'; });
-window.addEventListener('click', e=>{ if(e.target==modal){ modal.style.display='none'; } });
+closeBtn.onclick = ()=> modal.style.display="none";
+window.onclick = e=> { if(e.target==modal) modal.style.display="none"; }
 </script>
-
 </body>
 </html>
