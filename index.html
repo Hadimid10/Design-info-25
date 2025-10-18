@@ -21,33 +21,37 @@ body {
   color: var(--gris);
   line-height: 1.6;
   overflow-x: hidden;
-  padding-top: 140px; /* header haut pour logo grand */
+  padding-top: 200px; /* header + espace */
   scroll-behavior: smooth;
 }
 a { color: var(--bleu); text-decoration: none; }
 
-/* HEADER */
+/* HEADER DOUBLE LIGNE */
 header {
-  background: var(--gris);
-  color: white;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   position: fixed;
-  width: 100%;
   top: 0;
+  width: 100%;
   z-index: 100;
-  height: 120px; /* hauteur suffisante pour logo grand */
+  background: var(--gris);
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
-header .logo img { height: 120px; transition: transform 0.6s ease; }
-header .logo img:hover { transform: scale(1.05); }
+header .logo-container img {
+  height: 120px; /* grand logo */
+  width: auto;
+  transition: transform 0.6s ease;
+}
+header .logo-container img:hover { transform: scale(1.05); }
 
 nav {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap; /* permet menu sur plusieurs lignes si nécessaire */
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center; /* centrer le menu */
+  margin-top: 0.5rem;
 }
 nav a {
   color: white;
@@ -58,7 +62,6 @@ nav a {
 }
 nav a:hover { color: var(--doré); }
 
-/* Hamburger menu mobile */
 .menu-toggle {
   display: none;
   cursor: pointer;
@@ -66,9 +69,9 @@ nav a:hover { color: var(--doré); }
   color: white;
 }
 @media(max-width:768px){
-  nav { display: none; flex-direction: column; background: var(--gris); position: absolute; top:130px; right:0; padding:1rem; border-radius:0 0 0 8px; width:200px; }
-  nav.open { display: flex; }
-  .menu-toggle { display: block; }
+  nav { display:none; flex-direction: column; background: var(--gris); padding:1rem; border-radius:0 0 8px 8px; position:absolute; top:140px; right:0; width:200px; }
+  nav.open { display:flex; }
+  .menu-toggle { display:block; }
 }
 
 /* HERO */
@@ -102,7 +105,7 @@ nav a:hover { color: var(--doré); }
 @keyframes scrollText { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
 /* SECTIONS */
-section { scroll-margin-top: 140px; } /* header haut */
+section { scroll-margin-top: 200px; }
 
 /* CONTAINER */
 .container { width: 90%; max-width: 1200px; margin: auto; padding: 2rem 0; }
@@ -164,7 +167,7 @@ form.visible { opacity:1; transform:translateY(0); }
 form input, form textarea { width: 100%; margin-bottom: 1rem; padding: 0.9rem; border: 1px solid #ccc; border-radius: 12px; font-size: 1rem; transition: border 0.3s, box-shadow 0.3s; }
 form input:focus, form textarea:focus { border-color: var(--bleu); box-shadow: 0 0 10px rgba(11,103,255,0.2); outline: none; }
 form button { background: var(--gradient-btn); background-size: 200% 200%; color: var(--gris); border: none; padding: 0.8rem 1.5rem; border-radius: 12px; font-weight:600; cursor:pointer; transition: transform 0.3s, background-position 0.5s; }
-form button:hover { transform: scale(1.05); background-position: right center; color:#222; }
+form button:hover { transform: scale(1.05); background-position: right center; }
 
 /* FOOTER */
 footer { text-align:center; background:var(--gris); color:white; padding:1.5rem; margin-top:3rem; opacity:0; transform: translateY(30px); transition: all 1s ease; }
@@ -175,10 +178,9 @@ footer.visible { opacity:1; transform:translateY(0); }
 <body>
 
 <header>
-  <div class="logo">
+  <div class="logo-container">
     <img src="Images/logo-see_watch.png" alt="Logo See Watch">
   </div>
-  <div class="menu-toggle">☰</div>
   <nav>
     <a href="#accueil">Accueil</a>
     <a href="#boutique">Boutique</a>
@@ -186,6 +188,7 @@ footer.visible { opacity:1; transform:translateY(0); }
     <a href="#apropos">À propos</a>
     <a href="#contact">Contact</a>
   </nav>
+  <div class="menu-toggle">☰</div>
 </header>
 
 <section id="accueil" class="hero">
@@ -201,7 +204,7 @@ footer.visible { opacity:1; transform:translateY(0); }
   <h2>Nos montres</h2>
   <div class="produits">
 
-    <!-- Montre Classique -->
+    <!-- Montres ici (Classique, Sport, Prestige) -->
     <div class="produit">
       <div class="images-produits">
         <img src="Images/montreclassique.jpg" alt="Montre Classique 1">
@@ -219,7 +222,6 @@ footer.visible { opacity:1; transform:translateY(0); }
          data-caracteristiques="Étanche 50m, Garantie 2 ans">Voir plus</a>
     </div>
 
-    <!-- Montre Sport -->
     <div class="produit">
       <div class="images-produits">
         <img src="Images/montresport.jpg" alt="Montre Sport 1">
@@ -237,7 +239,6 @@ footer.visible { opacity:1; transform:translateY(0); }
          data-caracteristiques="Étanche 100m, Chronographe, Garantie 2 ans">Voir plus</a>
     </div>
 
-    <!-- Montre Prestige -->
     <div class="produit">
       <div class="images-produits">
         <img src="Images/montreprestige.jpg" alt="Montre Prestige 1">
